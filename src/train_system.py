@@ -54,3 +54,11 @@ class TrainSystem:
             raise ValueError(f"[TrainSystem]: {line} line does not exist")
 
         return self.stations[line]
+
+    def __len__(self):
+        count = 0
+
+        for _, stations in self.stations.items():
+            count += len(stations)
+
+        return count
