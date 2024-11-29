@@ -6,6 +6,8 @@
 # Coverage
 .coverage
 htmlcov
+coverage.xml
+cov.xml
 
 # Pycache
 *.pyc
