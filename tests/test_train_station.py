@@ -95,3 +95,44 @@ class TestTrainStation(unittest.TestCase):
     def test_train_station_str(self):
         train_station = TrainStation(name='name', line=CTATrainLine.BLUE, position=test_position)
         self.assertEqual(str(train_station), f'{train_station.get_name()} ({train_station.line})')
+
+    
+    def test_train_station_equals(self):
+        train_station = TrainStation(name='name', line=CTATrainLine.BLUE, position=test_position)
+        other_train_station = TrainStation(name='name', line=CTATrainLine.BLUE, position=test_position)
+
+        self.assertEqual(train_station, other_train_station)
+
+
+    def test_train_station_not_equals(self):
+        train_station = TrainStation(name='name', line=CTATrainLine.BLUE, position=test_position)
+        other_train_station = TrainStation(name='name', line=CTATrainLine.RED, position=test_position)
+
+        self.assertNotEqual(train_station, other_train_station)
+
+        # Test with None
+        self.assertNotEqual(train_station, None)
+
+        # Test with different type
+        self.assertNotEqual(train_station, 'train_station')
+
+
+    def test_train_station_close(self):
+        train_station = TrainStation(name='name', line=CTATrainLine.BLUE, position=test_position)
+        train_station.close()
+        self.assertFalse(train_station.is_station_open())
+
+
+    def test_train_station_open(self):
+        train_station = TrainStation(name='name', line=CTATrainLine.BLUE, position=test_position)
+        train_station.close()
+        train_station.open()
+        self.assertTrue(train_station.is_station_open())
+
+
+    def test_train_station_is_station_open(self):
+        train_station = TrainStation(name='name', line=CTATrainLine.BLUE, position=test_position)
+        self.assertTrue(train_station.is_station_open())
+
+        train_station.close()
+        self.assertFalse(train_station.is_station_open())

@@ -1,4 +1,7 @@
+from typing import Dict
+
 class Position:
+    positions: Dict[str, 'Position'] = {}
     
     def __init__(self, latitude: float=None, longitude: float=None):
         self.__set_latitude(latitude)
@@ -25,13 +28,32 @@ class Position:
         self.longitude = longitude
 
 
-    def get_latitude(self):
+    def get_latitude(self) -> float:
         return self.latitude
     
 
-    def get_longitude(self):
+    def get_longitude(self) -> float:
         return self.longitude
     
 
-    def __str__(self):
-        return f'Position(latitude={self.latitude}, longitude={self.longitude})'
+    def distance_to(self, position: 'Position') -> float:
+        return ((self.latitude - position.get_latitude()) ** 2 + (self.longitude - position.get_longitude()) ** 2) ** 0.5
+    
+
+    def __str__(self) -> str:
+        return Position.format_position(self.latitude, self.longitude)
+    
+
+    def __eq__(self, other: 'Position') -> bool:
+        if other is None:
+            return False
+        
+        if not isinstance(other, Position):
+            return False
+        
+        return self.latitude == other.get_latitude() and self.longitude == other.get_longitude()
+    
+
+    @staticmethod
+    def format_position(latitude: float, longitude: float) -> str:
+        return f'Position(latitude={latitude}, longitude={longitude})'

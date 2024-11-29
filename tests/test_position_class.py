@@ -46,6 +46,28 @@ class TestPositionClass(unittest.TestCase):
         self.assertEqual(position.get_longitude(), -0.0)
 
 
+    def test_position_distance_to(self):
+        position = Position(latitude=0.0, longitude=-0.0)
+        other_position = Position(latitude=1.0, longitude=-1.0)
+
+        expected = ((0.0 - 1.0) ** 2 + (-0.0 - -1.0) ** 2) ** 0.5
+
+        self.assertEqual(position.distance_to(other_position), expected)
+
+
     def test_position_str(self):
         position = Position(latitude=0.0, longitude=-0.0)
         self.assertEqual(str(position), 'Position(latitude=0.0, longitude=-0.0)')
+
+
+    def test_position_equal(self):
+        position = Position(latitude=0.0, longitude=-0.0)
+        other_position = Position(latitude=0.0, longitude=-0.0)
+
+        self.assertEqual(position, other_position)
+
+        # Test for None
+        self.assertNotEqual(position, None)
+
+        # Test for different type
+        self.assertNotEqual(position, 'position')
