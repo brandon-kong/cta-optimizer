@@ -1,1 +1,1 @@
-python3.12 -m unittest discover -s tests
+coverage run -m unittest discover -s tests

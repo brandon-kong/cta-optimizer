@@ -3,6 +3,9 @@
 .env
 .env.*
 
+# Coverage
+.coverage
+htmlcov
 
 # Pycache
 *.pyc
