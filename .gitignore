@@ -1,0 +1,10 @@
+# Environments
+.venv
+.env
+.env.*
+
+
+# Pycache
+*.pyc
+
+.DS_store
