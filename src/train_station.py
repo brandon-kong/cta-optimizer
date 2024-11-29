@@ -24,7 +24,7 @@ class TrainStation:
     def get_transfer_stations(self):
         return self.transfer_stations
     
-    
+
     def get_name(self):
         return self.name
 
@@ -64,5 +64,5 @@ class TrainStation:
     
 
     def __str__(self):
-        return f'{self.name} ({self.line.name})'
+        return f'{self.name} ({self.line})'
     

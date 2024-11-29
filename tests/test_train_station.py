@@ -82,3 +82,16 @@ class TestTrainStation(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             train_station.add_transfer_station('station')
         self.assertEqual(str(context.exception), '[TrainStation]: station must be an instance of TrainStation')
+
+
+    def test_train_station_get_transfer_stations(self):
+        train_station = TrainStation(name='name', line=CTATrainLine.BLUE, position=test_position)
+        transfer_station = TrainStation(name='name', line=CTATrainLine.BLUE, position=test_position)
+        
+        train_station.add_transfer_station(transfer_station)
+        self.assertEqual(train_station.get_transfer_stations(), [transfer_station])
+
+
+    def test_train_station_str(self):
+        train_station = TrainStation(name='name', line=CTATrainLine.BLUE, position=test_position)
+        self.assertEqual(str(train_station), f'{train_station.get_name()} ({train_station.line})')
