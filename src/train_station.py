@@ -1,4 +1,4 @@
-from .position import Position
+from .position.position import Position
 from .train_line import CTATrainLine
 
 from typing import List

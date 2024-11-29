@@ -10,7 +10,7 @@ from typing import List, Dict, Set
 
 from .train_station import TrainStation
 from .train_line import CTATrainLine
-from .position import Position
+from .position.position import Position
 
 class TrainSystem:
     

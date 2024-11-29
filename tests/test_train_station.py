@@ -2,7 +2,7 @@ import unittest
 
 from src.train_station import TrainStation
 from src.train_line import CTATrainLine
-from src.position import Position
+from src.position.position import Position
 
 
 test_position = Position(latitude=0.0, longitude=-0.0)

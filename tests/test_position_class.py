@@ -1,9 +1,6 @@
 import unittest
 
-from src.position import Position
-
-
-test_position = Position(latitude=0.0, longitude=-0.0)
+from src.position.position import Position
 
 class TestPositionClass(unittest.TestCase):
 

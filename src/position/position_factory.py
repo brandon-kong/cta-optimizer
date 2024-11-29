@@ -16,8 +16,8 @@ class PositionFactory:
     positions: Dict[str, Position] = {}
 
     @staticmethod
-    def create_position(latitude: float, longitude: float) -> Position:
-        formatted_position = PositionFactory.format_position(latitude, longitude)
+    def get_position(latitude: float, longitude: float) -> Position:
+        formatted_position = Position.format_position(latitude, longitude)
 
         if formatted_position in PositionFactory.positions:
             return PositionFactory.positions[formatted_position]
