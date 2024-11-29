@@ -59,6 +59,12 @@ class Position:
         :param position: Position
         :return: float
         """
+        if position is None:
+            raise ValueError("[Position]: position is required")
+        
+        if not isinstance(position, Position):
+            raise ValueError("[Position]: position must be an instance of Position")
+        
         return (
             (self.latitude - position.get_latitude()) ** 2
             + (self.longitude - position.get_longitude()) ** 2

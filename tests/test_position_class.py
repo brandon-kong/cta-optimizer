@@ -39,6 +39,23 @@ class TestPositionClass(unittest.TestCase):
         position = Position(latitude=0.0, longitude=-0.0)
         self.assertEqual(position.get_longitude(), -0.0)
 
+    def test_position_distance_to_with_none(self):
+        position = Position(latitude=0.0, longitude=-0.0)
+
+        with self.assertRaises(ValueError) as context:
+            position.distance_to(None)
+        self.assertEqual(str(context.exception), "[Position]: position is required")
+
+    def test_position_distance_to_with_incorrect_type(self):
+        position = Position(latitude=0.0, longitude=-0.0)
+
+        with self.assertRaises(ValueError) as context:
+            position.distance_to("position")
+        self.assertEqual(
+            str(context.exception),
+            "[Position]: position must be an instance of Position",
+        )
+        
     def test_position_distance_to(self):
         position = Position(latitude=0.0, longitude=-0.0)
         other_position = Position(latitude=1.0, longitude=-1.0)
