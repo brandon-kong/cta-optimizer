@@ -5,7 +5,7 @@ This module contains the PositionFactory class which is responsible for creating
 and storing them in a dictionary to prevent creating duplicate Position objects.
 """
 
-from typing import Dict
+from typing import Dict, List
 
 from .position import Position
 
@@ -39,6 +39,15 @@ class PositionFactory:
         return position
 
     @staticmethod
+    def length() -> List[Position]:
+        """
+        Get the number of positions stored in the factory
+
+        :return: Dict[str, Position]
+        """
+        return len(PositionFactory.positions.items())
+
+    @staticmethod
     def clear_positions() -> None:
         """
         Clear all the positions stored in the factory
@@ -46,11 +55,3 @@ class PositionFactory:
         :return: None
         """
         PositionFactory.positions = {}
-
-    def __len__(self) -> int:
-        """
-        Get the number of positions stored in the factory
-
-        :return: int
-        """
-        return len(PositionFactory.positions.items())

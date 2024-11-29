@@ -20,3 +20,21 @@ class TestPositionFactory(unittest.TestCase):
         same_position = PositionFactory.get_position(latitude=0.0, longitude=-0.0)
 
         self.assertIs(position, same_position)
+
+    def test_position_factory_clears_positions(self):
+        PositionFactory.get_position(latitude=0.0, longitude=-0.0)
+
+        self.assertEqual(PositionFactory.length(), 1)
+        PositionFactory.clear_positions()
+
+        self.assertEqual(PositionFactory.length(), 0)
+
+    def test_position_factory_length(self):
+        PositionFactory.get_position(latitude=0.0, longitude=-0.0)
+        self.assertEqual(PositionFactory.length(), 1)
+
+        PositionFactory.get_position(latitude=1.0, longitude=-1.0)
+        self.assertEqual(PositionFactory.length(), 2)
+
+        PositionFactory.clear_positions()
+        self.assertEqual(PositionFactory.length(), 0)

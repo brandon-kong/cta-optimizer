@@ -6,7 +6,7 @@ train stations along with providing an API for filtering and searching for train
 on criteria such as line, position, and transfer stations.
 """
 
-from typing import List, Dict, Set
+from typing import List, Dict
 
 from .train_station import TrainStation
 from .train_line import CTATrainLine
@@ -54,16 +54,3 @@ class TrainSystem:
             raise ValueError(f"[TrainSystem]: {line} line does not exist")
 
         return self.stations[line]
-
-    def get_stations_with_transfer_stations(self) -> Set[TrainStation]:
-        """
-        Get all the stations that have transfer stations
-
-        :return: Set[TrainStation]
-        """
-        stations_with_transfer_stations = set()
-        for _, stations in self.stations.items():
-            for station in stations:
-                if station.get_transfer_stations():
-                    stations_with_transfer_stations.add(station)
-        return stations_with_transfer_stations
