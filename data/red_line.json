@@ -1,100 +1,24 @@
-[
-    {
-        "name": "Howard",
-        "line": "red",
-        "position": {
-            "lat": 42.019063,
-            "lng": -87.672892
-        }
+{
+    "endpoints": {
+        "Howard": "red:Howard",
+        "95th/Dan Ryan": "red:95th/Dan Ryan"
     },
-
-    {
-        "name": "Jarvis",
-        "line": "red",
-        "position": {
-            "lat": 42.015876,
-            "lng": -87.669092
+    
+    "stations": [
+        {
+            "name": "Howard",
+            "line": "red",
+            "position": {
+                "lat": 42.019063,
+                "lng": -87.672892
+            },
+            "adjacent": ["red:Jarvis"],
+            "transfers": {
+                "yellow:Howard": {
+                    "free": true
+                }
+            }
         }
-    },
-
-    {
-        "name": "Morse",
-        "line": "red",
-        "position": {
-            "lat": 42.008362,
-            "lng": -87.665909
-        }
-    },
-
-    {
-        "name": "Loyola",
-        "line": "red",
-        "position": {
-            "lat": 42.001073,
-            "lng": -87.661061
-        }
-    },
-
-    {
-        "name": "Granville",
-        "line": "red",
-        "position": {
-            "lat": 41.993664,
-            "lng": -87.659202
-        }
-    },
-
-    {
-        "name": "Thorndale",
-        "line": "red",
-        "position": {
-            "lat": 41.990259,
-            "lng": -87.659076
-        }
-    },
-
-    {
-        "name": "Bryn Mawr",
-        "line": "red",
-        "position": {
-            "lat": 41.983504,
-            "lng": -87.65884
-        }
-    },
-
-    {
-        "name": "Berwyn",
-        "line": "red",
-        "position": {
-            "lat": 41.977984,
-            "lng": -87.658668
-        }
-    },
-
-    {
-        "name": "Argyle",
-        "line": "red",
-        "position": {
-            "lat": 41.973453,
-            "lng": -87.658081
-        }
-    },
-
-    {
-        "name": "Lawrence",
-        "line": "red",
-        "position": {
-            "lat": 41.969139,
-            "lng": -87.658493
-        }
-    },
-
-    {
-        "name": "Wilson",
-        "line": "red",
-        "position": {
-            "lat": 41.964273,
-            "lng": -87.657588
-        }
-    }
-]
+    ]
+   
+}

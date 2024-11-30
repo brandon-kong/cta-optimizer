@@ -15,80 +15,82 @@ from .train_station import TrainStation
 from .position.position_factory import PositionFactory
 
 
-class DataLoader:
+def load_data(
+    base_path: str = "./data", file_names: List[str] = None, line: CTATrainLine = None
+) -> TrainSystem:
     """
-    The DataLoader class is responsible for loading data from a JSON file
-    and converting it into a TrainSystem object.
+    Load data from a JSON file and convert it into a TrainSystem object
+
+    :param file_names: List[str]
+    :return: TrainSystem
     """
 
-    def __init__(self, base_path: str = "./data"):
-        self.base_path = base_path
+    if file_names is None:
+        raise ValueError("[DataLoader]: file_names is required")
 
-    def load_data(
-        self, file_names: List[str], line: CTATrainLine = None
-    ) -> TrainSystem:
-        """
-        Load data from a JSON file and convert it into a TrainSystem object
+    train_system = TrainSystem()
 
-        :param file_names: List[str]
-        :return: TrainSystem
-        """
-        train_system = TrainSystem()
+    for file_name in file_names:
+        try:
+            with open(f"{base_path}/{file_name}", "r", encoding="utf-8") as file:
+                data = json.load(file)
 
-        for file_name in file_names:
-            try:
-                with open(
-                    f"{self.base_path}/{file_name}", "r", encoding="utf-8"
-                ) as file:
-                    data = json.load(file)
+                if "stations" not in data:
+                    print(f"Stations not found in {file_name}")
+                    continue
 
-                    for station in data:
+                stations = data["stations"]
 
-                        if "name" not in station:
-                            print(f"Name not found for station {station}")
+                for station in stations:
+
+                    if "name" not in station:
+                        print(f"Name not found for station {station}")
+                        continue
+
+                    # create a Position object
+                    if "position" not in station:
+                        print(f"Position not found for station {station['name']}")
+                        continue
+
+                    if "lat" not in station["position"]:
+                        print(f"Latitude not found for station {station['name']}")
+                        continue
+
+                    if "lng" not in station["position"]:
+                        print(f"Longitude not found for station {station['name']}")
+                        continue
+
+                    position = PositionFactory.get_position(
+                        latitude=station["position"]["lat"],
+                        longitude=station["position"]["lng"],
+                    )
+
+                    # Get the line from the station data and create a CTATrainLine object
+
+                    if line is None:
+                        if "line" not in station:
+                            print(f"Line not found for station {station['name']}")
                             continue
 
-                        # create a Position object
-                        if "position" not in station:
-                            print(f"Position not found for station {station['name']}")
-                            continue
+                        line = CTATrainLine(station["line"])
 
-                        if "lat" not in station["position"]:
-                            print(f"Latitude not found for station {station['name']}")
-                            continue
+                    # create a TrainStation object
 
-                        if "lng" not in station["position"]:
-                            print(f"Longitude not found for station {station['name']}")
-                            continue
+                    train_station = TrainStation(
+                        name=station["name"],
+                        line=line,
+                        position=position,
+                    )
 
-                        position = PositionFactory.get_position(
-                            latitude=station["position"]["lat"],
-                            longitude=station["position"]["lng"],
-                        )
+                    if "closed" in station and station["closed"]:
+                        train_station.close()
 
-                        # Get the line from the station data and create a CTATrainLine object
+                    # Add the station to the TrainSystem
 
-                        if line is None:
-                            if "line" not in station:
-                                print(f"Line not found for station {station['name']}")
-                                continue
+                    train_system.add_station(train_station)
 
-                            line = CTATrainLine(station["line"])
+        except FileNotFoundError:
+            print(f"File {file_name} not found")
+            continue
 
-                        # create a TrainStation object
-
-                        train_station = TrainStation(
-                            name=station["name"],
-                            line=line,
-                            position=position,
-                        )
-
-                        # Add the station to the TrainSystem
-
-                        train_system.add_station(train_station)
-
-            except FileNotFoundError:
-                print(f"File {file_name} not found")
-                continue
-
-        return train_system
+    return train_system

@@ -2,14 +2,13 @@
 main.py
 """
 
-from src.train_line import CTATrainLine
-from src.data_loader import DataLoader
+from src.data_loader import load_data
 
 def main():
-    data_loader = DataLoader(base_path="./data")
 
-    train_system = data_loader.load_data(
-        [
+    train_system = load_data(
+        base_path="./data",
+        file_names=[
             "red_line.json"
         ])
 

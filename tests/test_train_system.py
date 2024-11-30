@@ -65,3 +65,15 @@ class TestTrainSystem(unittest.TestCase):
             str(context.exception),
             f"[TrainSystem]: {CTATrainLine.RED} line does not exist",
         )
+
+
+    def test_train_system_length(self):
+        train_system = TrainSystem()
+        self.assertEqual(len(train_system), 0)
+        
+        train_station = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+
+        train_system.add_station(train_station)
+        self.assertEqual(len(train_system), 1)
