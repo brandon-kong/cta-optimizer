@@ -10,6 +10,7 @@ from typing import List
 from .position.position import Position
 from .train_line import CTATrainLine
 
+
 class TrainStation:
     """
     The TrainStation class is responsible for storing information about a train station
@@ -40,7 +41,7 @@ class TrainStation:
             raise ValueError(
                 "[TrainStation]: station must be an instance of TrainTransfer"
             )
-        
+
         self.transfer_stations.append(station)
 
     def get_transfer_stations(self) -> List["TrainTransfer"]:
@@ -140,10 +141,12 @@ class TrainStation:
             and self.position == value.get_position()
         )
 
+
 class TrainTransfer:
     """
     TrainTransfer represents a transfer between two train stations
     """
+
     def __init__(self, source: TrainStation, destination: TrainStation, is_paid=False):
         self.__set_source(source)
         self.__set_destination(destination)
@@ -154,14 +157,18 @@ class TrainTransfer:
         if source is None:
             raise ValueError("[TrainTransfer]: source is required")
         if not isinstance(source, TrainStation):
-            raise ValueError("[TrainTransfer]: source must be an instance of TrainStation")
+            raise ValueError(
+                "[TrainTransfer]: source must be an instance of TrainStation"
+            )
         self.source = source
 
     def __set_destination(self, destination: TrainStation):
         if destination is None:
             raise ValueError("[TrainTransfer]: destination is required")
         if not isinstance(destination, TrainStation):
-            raise ValueError("[TrainTransfer]: destination must be an instance of TrainStation")
+            raise ValueError(
+                "[TrainTransfer]: destination must be an instance of TrainStation"
+            )
         self.destination = destination
 
     def get_source(self) -> TrainStation:
@@ -172,7 +179,7 @@ class TrainTransfer:
         """
 
         return self.source
-    
+
     def get_destination(self) -> TrainStation:
         """
         Get the destination train station
@@ -191,4 +198,11 @@ class TrainTransfer:
 
         return self.is_paid
 
-        
+    def is_same_line(self) -> bool:
+        """
+        Check if the transfer is between stations on the same line
+
+        :return: bool
+        """
+
+        return self.source.get_line() == self.destination.get_line()

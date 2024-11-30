@@ -77,7 +77,7 @@ class TestTrainStation(unittest.TestCase):
 
         transfer = TrainTransfer(
             source=train_station, destination=transfer_station
-        );
+        )
 
         train_station.add_transfer_station(transfer)
         self.assertEqual(train_station.get_transfer_stations(), [transfer])
@@ -115,7 +115,7 @@ class TestTrainStation(unittest.TestCase):
 
         transfer = TrainTransfer(
             source=train_station, destination=transfer_station
-        );
+        )
 
         train_station.add_transfer_station(transfer)
         self.assertEqual(train_station.get_transfer_stations(), [transfer])
