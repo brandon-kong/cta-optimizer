@@ -8,13 +8,13 @@ file and converting it into a TrainSystem object.
 import json
 from typing import List
 
-from .train_line import CTATrainLine
-from .train_system import TrainSystem
-from .train_station import TrainStation
+from ..train_line import CTATrainLine
+from ..train_system import TrainSystem
+from ..train_station import TrainStation
 
-from .position.position_factory import PositionFactory
+from ..position.position_factory import PositionFactory
 
-from .utils.is_rush_period import is_rush_period
+from .is_rush_period import is_rush_period
 
 
 def load_data(
