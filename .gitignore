@@ -2,11 +2,13 @@
 .venv
 .env
 .env.*
+.tox
 
 # Coverage
 .coverage
 htmlcov
 coverage.xml
+coverage.json
 cov.xml
 
 # Pycache
