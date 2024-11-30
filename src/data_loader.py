@@ -14,6 +14,8 @@ from .train_station import TrainStation
 
 from .position.position_factory import PositionFactory
 
+from .utils.is_rush_period import is_rush_period
+
 
 def load_data(
     base_path: str = "./data", file_names: List[str] = None, line: CTATrainLine = None
@@ -27,6 +29,8 @@ def load_data(
 
     if file_names is None:
         raise ValueError("[DataLoader]: file_names is required")
+
+    is_rush = is_rush_period()
 
     train_system = TrainSystem()
 
@@ -84,6 +88,11 @@ def load_data(
 
                     if "closed" in station and station["closed"]:
                         train_station.close()
+
+                    # Model the rush period
+                    if "rush_period_only" in station and station["rush_period_only"]:
+                        if not is_rush:
+                            train_station.close()
 
                     # Add the station to the TrainSystem
 
