@@ -125,6 +125,14 @@ class TrainStation:
 
         self.line = line
 
+    def get_id(self) -> str:
+        """
+        Get the unique identifier for the train station
+
+        :return: str
+        """
+        return f"{self.line}:{self.name}"
+
     def __str__(self):
         return f"{self.name} ({self.line})"
 
@@ -140,6 +148,9 @@ class TrainStation:
             and self.line == value.get_line()
             and self.position == value.get_position()
         )
+
+    def __hash__(self):
+        return hash((self.name, self.line, self.position))
 
 
 class TrainTransfer:

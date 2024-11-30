@@ -96,3 +96,6 @@ class Position:
             self.latitude == other.get_latitude()
             and self.longitude == other.get_longitude()
         )
+
+    def __hash__(self):
+        return hash((self.latitude, self.longitude))

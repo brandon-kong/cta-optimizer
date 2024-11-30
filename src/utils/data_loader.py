@@ -7,11 +7,13 @@ file and converting it into a TrainSystem object.
 
 import json
 from collections import deque
-from typing import List
+from typing import List, Dict
 
 from ..train_line import CTATrainLine
 from ..train_system import TrainSystem
-from ..train_station import TrainStation, TrainTransfer
+from ..train_station import TrainStation
+
+from ..train_graph import TrainGraph
 
 from ..position.position_factory import PositionFactory
 
@@ -34,6 +36,10 @@ def load_data(
     is_rush = is_rush_period()
 
     train_system = TrainSystem()
+    train_graph = TrainGraph()
+
+    train_map: Dict[str, TrainStation] = {}
+    train_map_data: Dict[str, dict] = {}
 
     # after all the stations are loaded, we will connect the transfer stations
     connection_queue = deque()
@@ -90,6 +96,14 @@ def load_data(
                         position=position,
                     )
 
+                    station_id = train_station.get_id()
+
+                    train_map[station_id] = train_station
+                    train_map_data[station_id] = station
+
+                    # Add the node to the graph
+                    train_graph.add_node(train_station)
+
                     if "closed" in station and station["closed"]:
                         train_station.close()
 
@@ -125,27 +139,42 @@ def load_data(
             print(f"File {file_name} not found")
             continue
 
+    # Connect the adjacent stations
+    for station_id, station_data in train_map_data.items():
+        if "adjacent" in station_data:
+            for adjacent_station in station_data["adjacent"]:
+                if train_map.get(adjacent_station) is not None:
+
+                    adjacent_station_data = train_map[adjacent_station]
+
+                    if (
+                        adjacent_station_data.is_station_open()
+                        and train_map[station_id].is_station_open()
+                    ):
+                        weight = 1
+                        train_graph.add_edge(
+                            train_map[station_id],
+                            train_map[adjacent_station],
+                            weight=weight,
+                        )
+
+                        print(
+                            f"Adding edge between {station_id} and {adjacent_station}"
+                        )
+
     # Connect the transfer stations
     while connection_queue:
-        station, station_id, fare = connection_queue.popleft()
+        station, transfer_id, free = connection_queue.popleft()
 
-        try:
-            transfer_station = train_system.get_station_from_id(station_id)
-        except ValueError as e:
-            continue
+        transfer_station = train_map.get(transfer_id)
 
-        if transfer_station is None:
-            print(f"Transfer station {station_id} not found")
-            continue
+        if transfer_station is not None:
+            if transfer_station.is_station_open() and station.is_station_open():
 
-        # create a transfer
-        new_transfer = TrainTransfer(
-            source=station, destination=transfer_station, is_paid=not fare
-        )
+                weight = 2
+                if free:
+                    weight = 1
 
-        print(
-            f"Adding transfer station {transfer_station.get_name()} to {station.get_name()}"
-        )
-        station.add_transfer_station(new_transfer)
+                train_graph.add_edge(station, transfer_station, weight=weight)
 
     return train_system
