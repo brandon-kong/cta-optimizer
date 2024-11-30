@@ -17,7 +17,7 @@ def main():
         ])
     
     station_1 = train_system.get_station_from_id("red:Howard")
-    station_2 = train_system.get_station_from_id("red:Loyola")
+    station_2 = train_system.get_station_from_id("yellow:Dempster-Skokie")
 
     shortest_path = train_graph.get_shortest_path(station_1, station_2)
 

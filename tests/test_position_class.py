@@ -55,7 +55,7 @@ class TestPositionClass(unittest.TestCase):
             str(context.exception),
             "[Position]: position must be an instance of Position",
         )
-        
+
     def test_position_distance_to(self):
         position = Position(latitude=0.0, longitude=-0.0)
         other_position = Position(latitude=1.0, longitude=-1.0)
@@ -79,3 +79,7 @@ class TestPositionClass(unittest.TestCase):
 
         # Test for different type
         self.assertNotEqual(position, "position")
+
+    def test_position_hash(self):
+        position = Position(latitude=0.0, longitude=-0.0)
+        self.assertEqual(hash(position), hash((0.0, -0.0)))

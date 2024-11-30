@@ -66,14 +66,52 @@ class TestTrainSystem(unittest.TestCase):
             f"[TrainSystem]: {CTATrainLine.RED} line does not exist",
         )
 
-
     def test_train_system_length(self):
         train_system = TrainSystem()
         self.assertEqual(len(train_system), 0)
-        
+
         train_station = TrainStation(
             name="name", line=CTATrainLine.BLUE, position=test_position
         )
 
         train_system.add_station(train_station)
         self.assertEqual(len(train_system), 1)
+
+    def test_train_system_get_station_from_id(self):
+        train_system = TrainSystem()
+        train_station = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+
+        train_system.add_station(train_station)
+
+        self.assertEqual(train_system.get_station_from_id("blue:name"), train_station)
+
+    def test_train_system_get_station_from_id_with_none(self):
+        train_system = TrainSystem()
+
+        with self.assertRaises(ValueError) as context:
+            train_system.get_station_from_id(None)
+        self.assertEqual(
+            str(context.exception), "[TrainSystem]: station_id is required"
+        )
+
+    def test_train_system_get_station_from_id_with_invalid_line(self):
+        train_system = TrainSystem()
+
+        with self.assertRaises(ValueError) as context:
+            train_system.get_station_from_id("red:name")
+        self.assertEqual(
+            str(context.exception),
+            f"[TrainSystem]: {CTATrainLine.RED} line does not exist",
+        )
+
+    def test_train_system_get_station_from_id_with_no_match(self):
+        train_system = TrainSystem()
+        train_station = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+
+        train_system.add_station(train_station)
+
+        self.assertIsNone(train_system.get_station_from_id("blue:wrong_name"))

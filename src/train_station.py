@@ -10,6 +10,8 @@ from typing import List
 from .position.position import Position
 from .train_line import CTATrainLine
 
+from src.utils.constants import FARE_COST
+
 
 class TrainStation:
     """
@@ -158,20 +160,57 @@ class TrainAction:
     TrainAction represents an action that can be taken at a train station
     """
 
-    def __init__(self, source: TrainStation, destination: TrainStation, is_paid=False):
+    def __init__(self, source: TrainStation, cost: float = 0.0):
         self.__set_source(source)
-        self.__set_destination(destination)
 
-        self.is_paid = is_paid
+        if not isinstance(cost, float):
+            raise ValueError("[TrainAction]: cost must be a float")
+
+        self.cost = cost
 
     def __set_source(self, source: TrainStation):
         if source is None:
-            raise ValueError("[TrainTransfer]: source is required")
+            raise ValueError("[TrainAction]: source is required")
         if not isinstance(source, TrainStation):
             raise ValueError(
-                "[TrainTransfer]: source must be an instance of TrainStation"
+                "[TrainAction]: source must be an instance of TrainStation"
             )
         self.source = source
+
+    def get_source(self) -> TrainStation:
+        """
+        Get the source train station
+
+        :return: TrainStation
+        """
+
+        return self.source
+
+    def get_cost(self) -> float:
+        """
+        Get the cost of the action
+
+        :return: float
+        """
+
+        return self.cost
+
+    def __str__(self):
+        return f"Action[ {self.source} ]"
+
+
+class TrainTransfer(TrainAction):
+    """
+    TrainTransfer represents a transfer between two train stations
+    """
+
+    def __init__(
+        self, source: TrainStation, destination: TrainStation, is_paid: bool = False
+    ):
+        cost = is_paid and FARE_COST or 0.0
+
+        super().__init__(source, cost=cost)
+        self.__set_destination(destination)
 
     def __set_destination(self, destination: TrainStation):
         if destination is None:
@@ -207,49 +246,7 @@ class TrainAction:
         :return: bool
         """
 
-        return self.is_paid
-
-    def is_same_line(self) -> bool:
-        """
-        Check if the transfer is between stations on the same line
-
-        :return: bool
-        """
-
-        return self.source.get_line() == self.destination.get_line()
-
-
-class TrainTransfer(TrainAction):
-    """
-    TrainTransfer represents a transfer between two train stations
-    """
-
-    def get_source(self) -> TrainStation:
-        """
-        Get the source train station
-
-        :return: TrainStation
-        """
-
-        return self.source
-
-    def get_destination(self) -> TrainStation:
-        """
-        Get the destination train station
-
-        :return: TrainStation
-        """
-
-        return self.destination
-
-    def is_transfer_paid(self) -> bool:
-        """
-        Check if the transfer is paid
-
-        :return: bool
-        """
-
-        return self.is_paid
+        return self.cost > 0.0
 
     def is_same_line(self) -> bool:
         """

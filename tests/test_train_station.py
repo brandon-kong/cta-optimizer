@@ -1,6 +1,6 @@
 import unittest
 
-from src.train_station import TrainStation, TrainTransfer
+from src.train_station import TrainStation, TrainTransfer, TrainAction
 from src.train_line import CTATrainLine
 from src.position.position import Position
 
@@ -75,9 +75,7 @@ class TestTrainStation(unittest.TestCase):
             name="name", line=CTATrainLine.BLUE, position=test_position
         )
 
-        transfer = TrainTransfer(
-            source=train_station, destination=transfer_station
-        )
+        transfer = TrainTransfer(source=train_station, destination=transfer_station)
 
         train_station.add_transfer_station(transfer)
         self.assertEqual(train_station.get_transfer_stations(), [transfer])
@@ -113,9 +111,7 @@ class TestTrainStation(unittest.TestCase):
             name="name", line=CTATrainLine.BLUE, position=test_position
         )
 
-        transfer = TrainTransfer(
-            source=train_station, destination=transfer_station
-        )
+        transfer = TrainTransfer(source=train_station, destination=transfer_station)
 
         train_station.add_transfer_station(transfer)
         self.assertEqual(train_station.get_transfer_stations(), [transfer])
@@ -177,3 +173,213 @@ class TestTrainStation(unittest.TestCase):
 
         train_station.close()
         self.assertFalse(train_station.is_station_open())
+
+    def test_train_station_get_id(self):
+        train_station = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+        self.assertEqual(train_station.get_id(), "blue:name")
+
+    def test_train_station_hash(self):
+        train_station = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+        self.assertEqual(
+            hash(
+                (
+                    train_station.get_name(),
+                    train_station.get_line(),
+                    train_station.get_position(),
+                )
+            ),
+            hash(train_station),
+        )
+
+
+class TestTrainAction(unittest.TestCase):
+    def test_train_transfer_can_be_created(self):
+        source = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+
+        destination = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+
+        train_action = TrainAction(source=source)
+        self.assertIsInstance(train_action, TrainAction)
+
+    def test_train_action_source_is_required(self):
+        with self.assertRaises(ValueError) as context:
+            TrainAction(source=None)
+        self.assertEqual(str(context.exception), "[TrainAction]: source is required")
+
+    def test_train_action_source_must_be_an_instance_of_train_station(self):
+        with self.assertRaises(ValueError) as context:
+            TrainAction(source="source")
+        self.assertEqual(
+            str(context.exception),
+            "[TrainAction]: source must be an instance of TrainStation",
+        )
+
+    def test_train_action_cost_is_zero_by_default(self):
+        source = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+        train_action = TrainAction(source=source)
+        self.assertEqual(train_action.get_cost(), 0.0)
+
+    def test_train_action_cost_must_be_a_float(self):
+        source = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+
+        with self.assertRaises(ValueError) as context:
+            TrainAction(source=source, cost="cost")
+        self.assertEqual(str(context.exception), "[TrainAction]: cost must be a float")
+
+    def test_train_action_get_source(self):
+        source = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+        train_action = TrainAction(source=source)
+        self.assertEqual(train_action.get_source(), source)
+
+    def test_train_action_get_cost(self):
+        source = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+        train_action = TrainAction(source=source, cost=1.0)
+        self.assertEqual(train_action.get_cost(), 1.0)
+
+    def test_train_action_str(self):
+        source = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+        train_action = TrainAction(source=source)
+        self.assertEqual(str(train_action), f"Action[ {source} ]")
+
+
+class TestTrainTransfer(unittest.TestCase):
+    def test_train_transfer_can_be_created(self):
+        source = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+        destination = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+
+        train_transfer = TrainTransfer(source=source, destination=destination)
+        self.assertIsInstance(train_transfer, TrainTransfer)
+
+    def test_train_transfer_source_is_required(self):
+        destination = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+
+        with self.assertRaises(ValueError):
+            TrainTransfer(source=None, destination=destination)
+
+    def test_train_transfer_source_must_be_an_instance_of_train_station(self):
+        destination = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+
+        with self.assertRaises(ValueError):
+            TrainTransfer(source="source", destination=destination)
+
+    def test_train_transfer_destination_is_required(self):
+        source = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+
+        with self.assertRaises(ValueError) as context:
+            TrainTransfer(source=source, destination=None)
+        self.assertEqual(
+            str(context.exception), "[TrainTransfer]: destination is required"
+        )
+
+    def test_train_transfer_destination_must_be_an_instance_of_train_station(self):
+        source = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+
+        with self.assertRaises(ValueError) as context:
+            TrainTransfer(source=source, destination="destination")
+        self.assertEqual(
+            str(context.exception),
+            "[TrainTransfer]: destination must be an instance of TrainStation",
+        )
+
+    def test_train_transfer_get_source(self):
+        source = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+        destination = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+
+        train_transfer = TrainTransfer(source=source, destination=destination)
+        self.assertEqual(train_transfer.get_source(), source)
+
+    def test_train_transfer_get_destination(self):
+        source = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+
+        destination = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+
+        train_transfer = TrainTransfer(source=source, destination=destination)
+        self.assertEqual(train_transfer.get_destination(), destination)
+
+    def test_train_transfer_str(self):
+        source = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+
+        destination = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+
+        train_transfer = TrainTransfer(source=source, destination=destination)
+        self.assertEqual(str(train_transfer), f"Transfer[ {source} -> {destination} ]")
+
+    def test_train_transfer_is_transfer_paid(self):
+        source = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+
+        destination = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+
+        train_transfer = TrainTransfer(source=source, destination=destination)
+        self.assertFalse(train_transfer.is_transfer_paid())
+
+        paid_transfer = TrainTransfer(
+            source=source, destination=destination, is_paid=True
+        )
+        self.assertTrue(paid_transfer.is_transfer_paid())
+
+    def test_train_transfer_is_same_line(self):
+        source = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+
+        destination = TrainStation(
+            name="name", line=CTATrainLine.BLUE, position=test_position
+        )
+
+        train_transfer = TrainTransfer(source=source, destination=destination)
+        self.assertTrue(train_transfer.is_same_line())
+
+        different_line_destination = TrainStation(
+            name="name", line=CTATrainLine.RED, position=test_position
+        )
+
+        different_line_transfer = TrainTransfer(
+            source=source, destination=different_line_destination
+        )
+        self.assertFalse(different_line_transfer.is_same_line())

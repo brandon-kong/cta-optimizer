@@ -1,7 +1,7 @@
 from collections import deque
 import networkx as nx
 
-from src.train_station import TrainStation, TrainTransfer
+from src.train_station import TrainStation, TrainTransfer, TrainAction
 
 
 class TrainGraph:
@@ -49,7 +49,7 @@ class TrainGraph:
 
     def get_shortest_path(
         self, source: TrainStation, destination: TrainStation
-    ) -> deque:
+    ) -> deque[TrainAction]:
         """
         Get the shortest path between two nodes
 
@@ -88,7 +88,7 @@ class TrainGraph:
             if last_station.get_line() != station.get_line():
                 queue.append(TrainTransfer(station, station))
 
-            queue.append(station)
+            queue.append(TrainAction(station))
             last_station = station
 
         return queue
