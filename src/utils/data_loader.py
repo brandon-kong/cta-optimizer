@@ -11,7 +11,7 @@ from typing import List
 
 from ..train_line import CTATrainLine
 from ..train_system import TrainSystem
-from ..train_station import TrainStation
+from ..train_station import TrainStation, TrainTransfer
 
 from ..position.position_factory import PositionFactory
 
@@ -98,6 +98,25 @@ def load_data(
                         if not is_rush:
                             train_station.close()
 
+                    # Add all transfer stations to the connection queue
+                    if "transfers" in station:
+                        for station_id, station_info in station["transfers"].items():
+                            connection_queue.append(
+                                (
+                                    train_station,
+                                    station_id,
+                                    station_info.get("free", True),
+                                )
+                            )
+
+                    # add the adjacent stations to the TrainStation
+                    if "adjacent" in station:
+                        for adjacent_station in station["adjacent"]:
+
+                            connection_queue.append(
+                                (train_station, adjacent_station, True)
+                            )
+
                     # Add the station to the TrainSystem
 
                     train_system.add_station(train_station)
@@ -105,5 +124,28 @@ def load_data(
         except FileNotFoundError:
             print(f"File {file_name} not found")
             continue
+
+    # Connect the transfer stations
+    while connection_queue:
+        station, station_id, fare = connection_queue.popleft()
+
+        try:
+            transfer_station = train_system.get_station_from_id(station_id)
+        except ValueError as e:
+            continue
+
+        if transfer_station is None:
+            print(f"Transfer station {station_id} not found")
+            continue
+
+        # create a transfer
+        new_transfer = TrainTransfer(
+            source=station, destination=transfer_station, is_paid=not fare
+        )
+
+        print(
+            f"Adding transfer station {transfer_station.get_name()} to {station.get_name()}"
+        )
+        station.add_transfer_station(new_transfer)
 
     return train_system

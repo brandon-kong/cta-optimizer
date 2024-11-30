@@ -14,9 +14,7 @@
             },
             "adjacent": ["red:Jarvis"],
             "transfers": {
-                "yellow:Howard": {
-                    "free": true
-                },
+                "yellow:Howard": {},
                 "purple:Howard": {
                     "free": true
                 }
