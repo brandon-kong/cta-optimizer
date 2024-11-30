@@ -153,9 +153,9 @@ class TrainStation:
         return hash((self.name, self.line, self.position))
 
 
-class TrainTransfer:
+class TrainAction:
     """
-    TrainTransfer represents a transfer between two train stations
+    TrainAction represents an action that can be taken at a train station
     """
 
     def __init__(self, source: TrainStation, destination: TrainStation, is_paid=False):
@@ -217,3 +217,48 @@ class TrainTransfer:
         """
 
         return self.source.get_line() == self.destination.get_line()
+
+
+class TrainTransfer(TrainAction):
+    """
+    TrainTransfer represents a transfer between two train stations
+    """
+
+    def get_source(self) -> TrainStation:
+        """
+        Get the source train station
+
+        :return: TrainStation
+        """
+
+        return self.source
+
+    def get_destination(self) -> TrainStation:
+        """
+        Get the destination train station
+
+        :return: TrainStation
+        """
+
+        return self.destination
+
+    def is_transfer_paid(self) -> bool:
+        """
+        Check if the transfer is paid
+
+        :return: bool
+        """
+
+        return self.is_paid
+
+    def is_same_line(self) -> bool:
+        """
+        Check if the transfer is between stations on the same line
+
+        :return: bool
+        """
+
+        return self.source.get_line() == self.destination.get_line()
+
+    def __str__(self):
+        return f"Transfer[ {self.source} -> {self.destination} ]"

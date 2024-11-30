@@ -19,10 +19,12 @@ from ..position.position_factory import PositionFactory
 
 from .is_rush_period import is_rush_period
 
+from ..utils.logger import default_logger
+
 
 def load_data(
     base_path: str = "./data", file_names: List[str] = None, line: CTATrainLine = None
-) -> TrainSystem:
+) -> tuple[TrainSystem, TrainGraph]:
     """
     Load data from a JSON file and convert it into a TrainSystem object
 
@@ -81,12 +83,11 @@ def load_data(
 
                     # Get the line from the station data and create a CTATrainLine object
 
-                    if line is None:
-                        if "line" not in station:
-                            print(f"Line not found for station {station['name']}")
-                            continue
+                    if "line" not in station:
+                        print(f"Line not found for station {station['name']}")
+                        continue
 
-                        line = CTATrainLine(station["line"])
+                    line = CTATrainLine(station["line"])
 
                     # create a TrainStation object
 
@@ -122,15 +123,6 @@ def load_data(
                                     station_info.get("free", True),
                                 )
                             )
-
-                    # add the adjacent stations to the TrainStation
-                    if "adjacent" in station:
-                        for adjacent_station in station["adjacent"]:
-
-                            connection_queue.append(
-                                (train_station, adjacent_station, True)
-                            )
-
                     # Add the station to the TrainSystem
 
                     train_system.add_station(train_station)
@@ -158,10 +150,6 @@ def load_data(
                             weight=weight,
                         )
 
-                        print(
-                            f"Adding edge between {station_id} and {adjacent_station}"
-                        )
-
     # Connect the transfer stations
     while connection_queue:
         station, transfer_id, free = connection_queue.popleft()
@@ -177,4 +165,8 @@ def load_data(
 
                 train_graph.add_edge(station, transfer_station, weight=weight)
 
-    return train_system
+    default_logger.log(
+        f"Loaded {len(train_system)} stations from {len(file_names)} files"
+    )
+
+    return train_system, train_graph

@@ -1,6 +1,7 @@
+from collections import deque
 import networkx as nx
 
-from src.train_station import TrainStation
+from src.train_station import TrainStation, TrainTransfer
 
 
 class TrainGraph:
@@ -48,7 +49,7 @@ class TrainGraph:
 
     def get_shortest_path(
         self, source: TrainStation, destination: TrainStation
-    ) -> nx.DiGraph:
+    ) -> deque:
         """
         Get the shortest path between two nodes
 
@@ -62,7 +63,35 @@ class TrainGraph:
         if destination is None:
             raise ValueError("[GraphRepresentation]: destination is required")
 
-        return nx.shortest_path(self.graph, source, destination, weight="weight")
+        if not isinstance(source, TrainStation):
+            raise ValueError(
+                "[GraphRepresentation]: source must be an instance of TrainStation"
+            )
+
+        if not isinstance(destination, TrainStation):
+            raise ValueError(
+                "[GraphRepresentation]: destination must be an instance of TrainStation"
+            )
+
+        shortest_path = nx.shortest_path(
+            self.graph, source, destination, weight="weight"
+        )
+
+        shortest_path_queue = deque(shortest_path)
+
+        queue = deque()
+
+        last_station = source
+        while len(shortest_path_queue) > 0:
+            station = shortest_path_queue.popleft()
+
+            if last_station.get_line() != station.get_line():
+                queue.append(TrainTransfer(station, station))
+
+            queue.append(station)
+            last_station = station
+
+        return queue
 
     def get_graph(self) -> nx.DiGraph:
         """

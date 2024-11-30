@@ -1,4 +1,6 @@
 {
+    "route_name": "Red Line",
+
     "endpoints": {
         "Howard": "red:Howard",
         "95th/Dan Ryan": "red:95th/Dan Ryan"

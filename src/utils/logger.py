@@ -60,3 +60,6 @@ class Logger:
         """
         with open(self.log_file, "w", encoding="utf-8") as f:
             f.write("")
+
+
+default_logger = Logger(log_file="logs/activity.log")
