@@ -3,8 +3,11 @@ main.py
 """
 
 from src.data_loader import load_data
+from src.utils.logger import Logger
 
 def main():
+
+    logger = Logger(log_file="logs/activity.log")
 
     train_system = load_data(
         base_path="./data",
@@ -12,7 +15,7 @@ def main():
             "red_line.json"
         ])
 
-    print(f"Created TrainSystem with {len(train_system)} stations")
+    logger.log(f"Created TrainSystem with {len(train_system)} stations")
 
 if __name__ == "__main__":
     main()

@@ -13,3 +13,6 @@ cov.xml
 *.pyc
 
 .DS_store
+
+# Logs
+*.log
