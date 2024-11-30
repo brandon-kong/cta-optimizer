@@ -46,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: covdata
-          path: coverage.*
+          path: coverage.json
 
   coverage:
     name: Coverage
@@ -82,7 +82,7 @@ jobs:
         with:
           # GIST_TOKEN is a GitHub personal access token with scope "gist".
           auth: ${{ secrets.GIST_TOKEN }}
-          gistID: 123abc456def789   # replace with your real Gist id.
+          gistID: 10846623ec0726c24399ae826fc29c34   # replace with your real Gist id.
           filename: covbadge.json
           label: Coverage
           message: ${{ env.total }}%
