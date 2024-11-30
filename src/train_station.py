@@ -10,7 +10,6 @@ from typing import List
 from .position.position import Position
 from .train_line import CTATrainLine
 
-
 class TrainStation:
     """
     The TrainStation class is responsible for storing information about a train station
@@ -26,9 +25,9 @@ class TrainStation:
 
         self.is_open: bool = True
 
-        self.transfer_stations: List[TrainStation] = []
+        self.transfer_stations: List[TrainTransfer] = []
 
-    def add_transfer_station(self, station: "TrainStation") -> None:
+    def add_transfer_station(self, station: "TrainTransfer") -> None:
         """
         Add a transfer station to the train station
 
@@ -37,14 +36,14 @@ class TrainStation:
         if station is None:
             raise ValueError("[TrainStation]: station is required")
 
-        if not isinstance(station, TrainStation):
+        if not isinstance(station, TrainTransfer):
             raise ValueError(
-                "[TrainStation]: station must be an instance of TrainStation"
+                "[TrainStation]: station must be an instance of TrainTransfer"
             )
-
+        
         self.transfer_stations.append(station)
 
-    def get_transfer_stations(self) -> List["TrainStation"]:
+    def get_transfer_stations(self) -> List["TrainTransfer"]:
         """
         Get all the transfer stations for the train station
 
@@ -140,3 +139,56 @@ class TrainStation:
             and self.line == value.get_line()
             and self.position == value.get_position()
         )
+
+class TrainTransfer:
+    """
+    TrainTransfer represents a transfer between two train stations
+    """
+    def __init__(self, source: TrainStation, destination: TrainStation, is_paid=False):
+        self.__set_source(source)
+        self.__set_destination(destination)
+
+        self.is_paid = is_paid
+
+    def __set_source(self, source: TrainStation):
+        if source is None:
+            raise ValueError("[TrainTransfer]: source is required")
+        if not isinstance(source, TrainStation):
+            raise ValueError("[TrainTransfer]: source must be an instance of TrainStation")
+        self.source = source
+
+    def __set_destination(self, destination: TrainStation):
+        if destination is None:
+            raise ValueError("[TrainTransfer]: destination is required")
+        if not isinstance(destination, TrainStation):
+            raise ValueError("[TrainTransfer]: destination must be an instance of TrainStation")
+        self.destination = destination
+
+    def get_source(self) -> TrainStation:
+        """
+        Get the source train station
+
+        :return: TrainStation
+        """
+
+        return self.source
+    
+    def get_destination(self) -> TrainStation:
+        """
+        Get the destination train station
+
+        :return: TrainStation
+        """
+
+        return self.destination
+
+    def is_transfer_paid(self) -> bool:
+        """
+        Check if the transfer is paid
+
+        :return: bool
+        """
+
+        return self.is_paid
+
+        

@@ -6,6 +6,7 @@ file and converting it into a TrainSystem object.
 """
 
 import json
+from collections import deque
 from typing import List
 
 from ..train_line import CTATrainLine
@@ -33,6 +34,9 @@ def load_data(
     is_rush = is_rush_period()
 
     train_system = TrainSystem()
+
+    # after all the stations are loaded, we will connect the transfer stations
+    connection_queue = deque()
 
     for file_name in file_names:
         try:

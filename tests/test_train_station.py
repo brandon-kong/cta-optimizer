@@ -1,6 +1,6 @@
 import unittest
 
-from src.train_station import TrainStation
+from src.train_station import TrainStation, TrainTransfer
 from src.train_line import CTATrainLine
 from src.position.position import Position
 
@@ -75,8 +75,12 @@ class TestTrainStation(unittest.TestCase):
             name="name", line=CTATrainLine.BLUE, position=test_position
         )
 
-        train_station.add_transfer_station(transfer_station)
-        self.assertEqual(train_station.get_transfer_stations(), [transfer_station])
+        transfer = TrainTransfer(
+            source=train_station, destination=transfer_station
+        );
+
+        train_station.add_transfer_station(transfer)
+        self.assertEqual(train_station.get_transfer_stations(), [transfer])
 
     def test_train_station_add_transfer_station_raises_error_if_station_is_none(self):
         train_station = TrainStation(
@@ -87,7 +91,7 @@ class TestTrainStation(unittest.TestCase):
             train_station.add_transfer_station(None)
         self.assertEqual(str(context.exception), "[TrainStation]: station is required")
 
-    def test_train_station_add_transfer_station_raises_error_if_station_is_not_instance_of_train_station(
+    def test_train_station_add_transfer_station_raises_error_if_station_is_not_instance_of_train_transfer(
         self,
     ):
         train_station = TrainStation(
@@ -98,7 +102,7 @@ class TestTrainStation(unittest.TestCase):
             train_station.add_transfer_station("station")
         self.assertEqual(
             str(context.exception),
-            "[TrainStation]: station must be an instance of TrainStation",
+            "[TrainStation]: station must be an instance of TrainTransfer",
         )
 
     def test_train_station_get_transfer_stations(self):
@@ -109,8 +113,12 @@ class TestTrainStation(unittest.TestCase):
             name="name", line=CTATrainLine.BLUE, position=test_position
         )
 
-        train_station.add_transfer_station(transfer_station)
-        self.assertEqual(train_station.get_transfer_stations(), [transfer_station])
+        transfer = TrainTransfer(
+            source=train_station, destination=transfer_station
+        );
+
+        train_station.add_transfer_station(transfer)
+        self.assertEqual(train_station.get_transfer_stations(), [transfer])
 
     def test_train_station_str(self):
         train_station = TrainStation(

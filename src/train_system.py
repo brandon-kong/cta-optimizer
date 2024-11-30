@@ -55,6 +55,29 @@ class TrainSystem:
 
         return self.stations[line]
 
+    def get_station_from_id(self, station_id: str = None) -> TrainStation:
+        """
+        Get a station based on the station id
+
+        The station ID is formatted as follows: {line}:{name}
+
+        :param station_id: str
+        :return: TrainStation
+        """
+        if station_id is None:
+            raise ValueError("[TrainSystem]: station_id is required")
+
+        line, name = station_id.split(":")
+
+        if line not in self.stations:
+            raise ValueError(f"[TrainSystem]: {line} line does not exist")
+
+        for station in self.stations[line]:
+            if station.get_name() == name and station.get_line() == line:
+                return station
+
+        return None
+
     def __len__(self):
         count = 0
 
