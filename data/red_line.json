@@ -5,6 +5,8 @@
         "Howard": "red:Howard",
         "95th/Dan Ryan": "red:95th/Dan Ryan"
     },
+
+    "speed": 55,
     
     "stations": [
         {

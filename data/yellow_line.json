@@ -5,6 +5,8 @@
         "Dempster-Skokie": "yellow:Dempster-Skokie",
         "Howard": "yellow:Howard"
     },
+
+    "speed": 55,
     
     "stations": [
         {
