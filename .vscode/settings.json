@@ -1,5 +1,3 @@
 {
-    "pylint.ignorePatterns": [
-        "./tests/*.py"
-    ]
+  "pylint.ignorePatterns": ["./tests/*.py"]
 }
