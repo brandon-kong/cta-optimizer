@@ -86,7 +86,7 @@ class TrainGraph:
             station = shortest_path_queue.popleft()
 
             if last_station.get_line() != station.get_line():
-                queue.append(TrainTransfer(station, station))
+                queue.append(TrainTransfer(last_station, station))
 
             queue.append(TrainAction(station))
             last_station = station
