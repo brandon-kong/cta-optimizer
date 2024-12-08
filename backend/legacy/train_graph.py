@@ -1,7 +1,7 @@
 from collections import deque
 import networkx as nx
 
-from src.train_station import TrainStation, TrainTransfer, TrainAction
+from .train_station import TrainStation, TrainTransfer, TrainAction
 
 
 class TrainGraph:
