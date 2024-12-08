@@ -10,7 +10,7 @@ from typing import List
 from .position.position import Position
 from .train_line import CTATrainLine
 
-from src.utils.constants import FARE_COST
+from .utils.constants import FARE_COST
 
 
 class TrainStation:
