@@ -27,14 +27,7 @@ def format_log_message(message: str, level: LogLevel = LogLevel.INFO) -> str:
     :param level: The log level
     :return: The formatted log message
     """
-    if not isinstance(level, LogLevel):
-        raise ValueError("Invalid log level")
-
-    if not isinstance(message, str):
-        raise ValueError("Message must be a string")
-
-    if len(message) == 0:
-        raise ValueError("Message cannot be empty")
+    validate_message(message)
 
     return f"{datetime.now().isoformat()} {level}: {message}"
 
@@ -122,10 +115,10 @@ class Logger:
             with open(self.file_path, "a", encoding="utf-8") as f:
                 f.write(format_log_message(message, LogLevel.ERROR) + "\n")
 
-    def __del__(self):
-        if self.failed_to_open_file:
-            return
+    def is_print_to_console(self):
+        return self.print_to_console
 
+    def __del__(self):
         if self.failed_to_open_file:
             return
 

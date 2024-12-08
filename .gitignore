@@ -12,9 +12,10 @@ coverage.xml
 coverage.json
 cov.xml
 
-# Pycache
+# Cache
 *.pyc
-
+__pycache__
+.pytest_cache
 .DS_store
 
 # Logs
