@@ -1,6 +1,10 @@
+from typing import Generic, TypeVar, Set, Dict
+
 from cta_optimizer.location import Location
 
-class Station:
+T = TypeVar("T")
+
+class Station(Generic[T]):
     def __init__(self, name: str, location: Location):
         self.__validate_name(name)
         self.__validate_location(location)
@@ -8,15 +12,15 @@ class Station:
         self.name = name
         self.location = location
 
-        self.adjacent_stations = set()
+        self.adjacent_stations: Dict["Station", T] = dict[Station, T]()
 
-    def add_adjacent_station(self, station: "Station"):
+    def add_adjacent_station(self, station: "Station", data: T = None):
         self.__validate_station(station)
-        self.adjacent_stations.add(station)
+        self.adjacent_stations[station] = data
 
     def remove_adjacent_station(self, station: "Station"):
         self.__validate_station(station)
-        self.adjacent_stations.remove(station)
+        self.adjacent_stations.pop(station, None)
 
     def get_adjacent_stations(self):
         return self.adjacent_stations
