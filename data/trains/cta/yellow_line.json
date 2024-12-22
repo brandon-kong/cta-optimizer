@@ -11,36 +11,38 @@
   "stations": [
     {
       "name": "Dempster-Skokie",
-      "line": "yellow",
+      "route": "yellow",
       "position": {
         "lat": 42.019063,
         "lng": -87.672892
       },
-      "adjacent": ["yellow:Oakton-Skokie"],
-      "transfers": {}
+      "adjacent_stations": ["yellow:Oakton-Skokie"],
+      "transfer_stations": {}
     },
 
     {
       "name": "Oakton-Skokie",
-      "line": "yellow",
+      "route": "yellow",
       "position": {
         "lat": 42.019063,
         "lng": -87.672892
       },
-      "adjacent": ["yellow:Howard", "yellow:Dempster-Skokie"],
-      "transfers": {}
+      "adjacent_stations": ["yellow:Howard", "yellow:Dempster-Skokie"],
+      "transfer_stations": {}
     },
 
     {
       "name": "Howard",
-      "line": "yellow",
+      "route": "yellow",
       "position": {
         "lat": 42.019063,
         "lng": -87.672892
       },
-      "adjacent": ["yellow:Oakton-Skokie"],
-      "transfers": {
-        "red:Howard": {}
+      "adjacent_stations": ["yellow:Oakton-Skokie", "red:Howard"],
+      "transfer_stations": {
+        "red:Howard": {
+          "free_transfer": true
+        }
       }
     }
   ]
