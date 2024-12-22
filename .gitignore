@@ -1,0 +1,22 @@
+# Environments
+.venv
+.env
+.env.*
+.tox
+node_modules
+
+# Coverage
+.coverage
+htmlcov
+coverage.xml
+coverage.json
+cov.xml
+
+# Cache
+*.pyc
+__pycache__
+.pytest_cache
+.DS_store
+
+# Logs
+*.log

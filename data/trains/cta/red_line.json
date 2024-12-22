@@ -1,0 +1,61 @@
+{
+  "route_name": "Red Line",
+
+  "endpoints": {
+    "Howard": "red:Howard",
+    "95th/Dan Ryan": "red:95th/Dan Ryan"
+  },
+
+  "speed": 55,
+
+  "stations": [
+    {
+      "name": "Howard",
+      "line": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent": ["red:Jarvis"],
+      "transfers": {
+        "yellow:Howard": {},
+        "purple:Howard": {
+          "free": true
+        }
+      }
+    },
+
+    {
+      "name": "Jarvis",
+      "line": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent": ["red:Howard", "red:Morse"],
+      "transfers": {}
+    },
+
+    {
+      "name": "Morse",
+      "line": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent": ["red:Jarvis", "red:Loyola"],
+      "transfers": {}
+    },
+
+    {
+      "name": "Loyola",
+      "line": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent": ["red:Morse", "red:Granville"],
+      "transfers": {}
+    }
+  ]
+}

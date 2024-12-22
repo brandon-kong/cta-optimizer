@@ -1,0 +1,47 @@
+{
+  "route_name": "Yellow Line",
+
+  "endpoints": {
+    "Dempster-Skokie": "yellow:Dempster-Skokie",
+    "Howard": "yellow:Howard"
+  },
+
+  "speed": 55,
+
+  "stations": [
+    {
+      "name": "Dempster-Skokie",
+      "line": "yellow",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent": ["yellow:Oakton-Skokie"],
+      "transfers": {}
+    },
+
+    {
+      "name": "Oakton-Skokie",
+      "line": "yellow",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent": ["yellow:Howard", "yellow:Dempster-Skokie"],
+      "transfers": {}
+    },
+
+    {
+      "name": "Howard",
+      "line": "yellow",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent": ["yellow:Oakton-Skokie"],
+      "transfers": {
+        "red:Howard": {}
+      }
+    }
+  ]
+}
