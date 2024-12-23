@@ -48,6 +48,7 @@ class StationDataLoader:
             raise ValueError("Filename cannot be empty")
 
         self.files = files
+        self.stations = self.load_stations()
 
     def load_stations(self) -> List[Station]:
         """
@@ -72,7 +73,7 @@ class StationDataLoader:
                     # create all the stations before adding adjacent stations
                     for station in this_station_data.stations:
                         station_id = f"{station.route}:{station.name}"
-                        stations[station_id] = Station(station.name, Location(station.position.lat, station.position.lng))
+                        stations[station_id] = Station(station.name, Location(station.position.lat, station.position.lng), station.route)
 
             for station_data_file in station_data:
                 # add adjacent stations

@@ -11,51 +11,53 @@
   "stations": [
     {
       "name": "Howard",
-      "line": "red",
+      "route": "red",
       "position": {
         "lat": 42.019063,
         "lng": -87.672892
       },
-      "adjacent": ["red:Jarvis"],
-      "transfers": {
-        "yellow:Howard": {},
+      "adjacent_stations": ["red:Jarvis"],
+      "transfer_stations": {
+        "yellow:Howard": {
+          "free_transfer": true
+        },
         "purple:Howard": {
-          "free": true
+          "free_transfer": true
         }
       }
     },
 
     {
       "name": "Jarvis",
-      "line": "red",
+      "route": "red",
       "position": {
         "lat": 42.019063,
         "lng": -87.672892
       },
-      "adjacent": ["red:Howard", "red:Morse"],
-      "transfers": {}
+      "adjacent_stations": ["red:Howard", "red:Morse"],
+      "transfer_stations": {}
     },
 
     {
       "name": "Morse",
-      "line": "red",
+      "route": "red",
       "position": {
         "lat": 42.019063,
         "lng": -87.672892
       },
-      "adjacent": ["red:Jarvis", "red:Loyola"],
-      "transfers": {}
+      "adjacent_stations": ["red:Jarvis", "red:Loyola"],
+      "transfer_stations": {}
     },
 
     {
       "name": "Loyola",
-      "line": "red",
+      "route": "red",
       "position": {
         "lat": 42.019063,
         "lng": -87.672892
       },
-      "adjacent": ["red:Morse", "red:Granville"],
-      "transfers": {}
+      "adjacent_stations": ["red:Morse", "red:Granville"],
+      "transfer_stations": {}
     }
   ]
 }

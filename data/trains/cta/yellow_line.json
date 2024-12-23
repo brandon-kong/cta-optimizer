@@ -38,7 +38,7 @@
         "lat": 42.019063,
         "lng": -87.672892
       },
-      "adjacent_stations": ["yellow:Oakton-Skokie", "red:Howard"],
+      "adjacent_stations": ["yellow:Oakton-Skokie"],
       "transfer_stations": {
         "red:Howard": {
           "free_transfer": true

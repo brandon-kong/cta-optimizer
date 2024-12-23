@@ -2,6 +2,8 @@ from cta_optimizer.station import Station
 from cta_optimizer.location import Location
 
 from enum import Enum
+
+
 class CTATrainLine(Enum):
     RED = "red"
     BLUE = "blue"
@@ -15,13 +17,17 @@ class CTATrainLine(Enum):
     def __str__(self):
         return self.value
 
+
 class CTATrainStation(Station):
-    def __init__(self, name: str, location: Location, line: CTATrainLine):
+    def __init__(self, name: str, location: Location, route: CTATrainLine):
         super().__init__(name, location)
-        self.line = line
+        self.route = route
+
+    def get_id(self):
+        return f"{self.route}:{self.name}"
 
     def get_line(self):
-        return self.line
+        return self.route
 
     def __str__(self):
         return f"CTA Train Station: {self.name} ({self.location})"
@@ -30,7 +36,7 @@ class CTATrainStation(Station):
         if not isinstance(other, CTATrainStation):
             return False
 
-        return self.name == other.name and self.location == other.location and self.line == other.line
+        return self.name == other.name and self.location == other.location and self.route == other.route
 
     def __hash__(self):
-        return hash((self.name, self.location, self.line))
+        return hash((self.name, self.location, self.route))

@@ -5,12 +5,14 @@ from cta_optimizer.location import Location
 T = TypeVar("T")
 
 class Station(Generic[T]):
-    def __init__(self, name: str, location: Location):
+    def __init__(self, name: str, location: Location, route: str = None):
         self.__validate_name(name)
         self.__validate_location(location)
+        self.__validate_route(route)
 
         self.name = name
         self.location = location
+        self.route = route
 
         self.adjacent_stations: Dict["Station", T] = dict[Station, T]()
 
@@ -61,6 +63,11 @@ class Station(Generic[T]):
 
         if not isinstance(location, Location):
             raise ValueError("Location must be a Location object")
+
+    @staticmethod
+    def __validate_route(route: str):
+        if route is not None and not (isinstance(route, str) or len(route) == 0):
+            raise ValueError("Route must be a non-empty string")
 
     def __validate_station(self, station: "Station"):
         if station is None:
