@@ -20,6 +20,8 @@ class TestStationDataLoader(unittest.TestCase):
 
     def test_data_loader_loads_data(self):
         data_loader = StationDataLoader(["../data/trains/cta/yellow_line.json"])
-        data_loader.load_stations()
+        stations = data_loader.get_all_stations()
+
+        self.assertIsNotNone(stations)
 
 

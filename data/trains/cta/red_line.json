@@ -31,7 +31,7 @@
       "name": "Jarvis",
       "route": "red",
       "position": {
-        "lat": 42.019063,
+        "lat": 41.019063,
         "lng": -87.672892
       },
       "adjacent_stations": ["red:Howard", "red:Morse"],

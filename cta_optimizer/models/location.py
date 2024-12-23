@@ -1,3 +1,6 @@
+from math import radians, sin, cos, sqrt, asin
+from cta_optimizer.models.kilometer import Kilometer
+
 class Location:
     def __init__(self, latitude: float, longitude: float):
         self.__validate_latitude(latitude)
@@ -36,6 +39,31 @@ class Location:
 
     def get_longitude(self):
         return self.longitude
+
+    def distance_to(self, other: "Location") -> Kilometer:
+        """
+        Calculate the distance between this location and another location using the Haversine formula
+
+        :param other: The other location
+        :return: The distance between the two locations in kilometers
+        """
+
+        if not isinstance(other, Location):
+            raise ValueError("Invalid location")
+
+        lat1, lon1 = self.get_coordinates()
+        lat2, lon2 = other.get_coordinates()
+
+        lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
+
+        # haversine formula
+        dlon = lon2 - lon1
+        dlat = lat2 - lat1
+        a = sin(dlat / 2) ** 2 + cos(lat1) * cos(lat2) * sin(dlon / 2) ** 2
+        c = 2 * asin(sqrt(a))
+        r = 6371  # Radius of earth in kilometers. Use 3956 for miles. Determines return value units.
+        return Kilometer(c * r)
+
 
     def __str__(self):
         return f"Location: {self.latitude}, {self.longitude}"

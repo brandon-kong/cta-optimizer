@@ -1,5 +1,5 @@
-from cta_optimizer.station import Station
-from cta_optimizer.location import Location
+from cta_optimizer.models.station import Station
+from cta_optimizer.models.location import Location
 
 from enum import Enum
 

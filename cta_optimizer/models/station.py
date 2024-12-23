@@ -1,6 +1,6 @@
-from typing import Generic, TypeVar, Set, Dict
+from typing import Generic, TypeVar, Dict
 
-from cta_optimizer.location import Location
+from cta_optimizer.models.location import Location
 
 T = TypeVar("T")
 

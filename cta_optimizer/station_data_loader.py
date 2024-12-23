@@ -9,8 +9,8 @@ import json
 from typing import List, Optional
 from pydantic import BaseModel, ValidationError
 
-from cta_optimizer.location import Location
-from cta_optimizer.station import Station
+from cta_optimizer.models.location import Location
+from cta_optimizer.models.station import Station
 
 
 class TransferData(BaseModel):
@@ -48,9 +48,9 @@ class StationDataLoader:
             raise ValueError("Filename cannot be empty")
 
         self.files = files
-        self.stations = self.load_stations()
+        self.stations = self.__load_stations()
 
-    def load_stations(self) -> List[Station]:
+    def __load_stations(self) -> List[Station]:
         """
         Load station data from the specified file and return a list of Station objects
 
@@ -95,3 +95,34 @@ class StationDataLoader:
         except ValidationError as e:
             print(f"Error validating station data: {e}")
             return []
+
+    def get_stations_by_route(self, route: str) -> List[Station]:
+        """
+        Get a list of stations for a specific train line
+
+        :param route: The train line to get stations for
+        :return: A list of Station objects
+        """
+        return [station for station in self.stations if station.route == route]
+
+    def get_station_by_name(self, name: str) -> Station:
+        """
+        Get a station by name
+
+        :param name: The name of the station to get
+        :return: The Station object
+        """
+        return next((station for station in self.stations if station.name == name), None)
+
+    def get_station_by_id(self, station_id: str) -> Station:
+        """
+        Get a station by ID
+
+        :param station_id: The ID of the station to get
+        :return: The Station object
+        """
+        return next((station for station in self.stations if station.get_id() == station_id), None)
+
+    def get_all_stations(self) -> List[Station]:
+        return self.stations
+
