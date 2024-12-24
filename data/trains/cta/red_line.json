@@ -242,7 +242,9 @@
         "lng": -87.672892
       },
       "adjacent_stations": ["red:Chicago/State", "red:Lake"],
-      "transfer_stations": {}
+      "transfer_stations": {
+
+      }
     },
 
     {
@@ -253,7 +255,26 @@
         "lng": -87.672892
       },
       "adjacent_stations": ["red:Grand/State", "red:Monroe"],
-      "transfer_stations": {}
+      "transfer_stations": {
+        "blue:Lake": {
+          "free_transfer": true
+        },
+        "brown:Lake": {
+          "free_transfer": true
+        },
+        "green:Lake": {
+          "free_transfer": true
+        },
+        "orange:Lake": {
+          "free_transfer": true
+        },
+        "pink:Lake": {
+          "free_transfer": true
+        },
+        "purple:Lake": {
+          "free_transfer": true
+        }
+      }
     },
 
     {
@@ -275,7 +296,23 @@
         "lng": -87.672892
       },
       "adjacent_stations": ["red:Monroe", "red:Harrison"],
-      "transfer_stations": {}
+      "transfer_stations": {
+        "blue:Jackson": {
+          "free_transfer": true
+        },
+        "brown:Jackson": {
+          "free_transfer": true
+        },
+        "orange:Jackson": {
+          "free_transfer": true
+        },
+        "pink:Jackson": {
+          "free_transfer": true
+        },
+        "purple:Jackson": {
+          "free_transfer": true
+        }
+      }
     },
 
     {
@@ -297,7 +334,14 @@
         "lng": -87.672892
       },
       "adjacent_stations": ["red:Harrison", "red:Cermak-Chinatown"],
-      "transfer_stations": {}
+      "transfer_stations": {
+        "green:Roosevelt": {
+          "free_transfer": true
+        },
+        "orange:Roosevelt": {
+          "free_transfer": true
+        }
+      }
     },
 
     {
