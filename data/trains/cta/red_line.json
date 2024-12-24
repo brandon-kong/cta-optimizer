@@ -112,7 +112,12 @@
         "lat": 42.019063,
         "lng": -87.672892
       },
-      "adjacent_stations": ["red:Berwyn", "red:Bryn Mawr", "red:Lawrence", "red:Wilson"],
+      "adjacent_stations": [
+        "red:Berwyn",
+        "red:Bryn Mawr",
+        "red:Lawrence",
+        "red:Wilson"
+      ],
       "transfer_stations": {}
     },
 
@@ -242,9 +247,7 @@
         "lng": -87.672892
       },
       "adjacent_stations": ["red:Chicago/State", "red:Lake"],
-      "transfer_stations": {
-
-      }
+      "transfer_stations": {}
     },
 
     {
@@ -374,7 +377,7 @@
         "lng": -87.672892
       },
       "adjacent_stations": ["red:Sox-35th", "red:Garfield"],
-        "transfer_stations": {}
+      "transfer_stations": {}
     },
 
     {
