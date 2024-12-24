@@ -2,10 +2,11 @@ from typing import Generic, TypeVar, Dict
 
 from cta_optimizer.models.location import Location
 
-T = TypeVar("T")
+AdjacentData = TypeVar("AdjacentData")
+TransferData = TypeVar("TransferData")
 
 
-class Station(Generic[T]):
+class Station(Generic[AdjacentData, TransferData]):
     def __init__(self, name: str, location: Location, route: str = None):
         self.__validate_name(name)
         self.__validate_location(location)
@@ -17,7 +18,12 @@ class Station(Generic[T]):
 
         self.closed = False
 
-        self.adjacent_stations: Dict["Station", T] = dict[Station, T]()
+        self.transfer_stations: Dict["Station", TransferData] = dict[
+            Station, TransferData
+        ]()
+        self.adjacent_stations: Dict["Station", AdjacentData] = dict[
+            Station, AdjacentData
+        ]()
 
     def get_id(self):
         return f"{self.route}:{self.name}"
@@ -34,7 +40,22 @@ class Station(Generic[T]):
     def is_closed(self):
         return self.closed
 
-    def add_adjacent_station(self, station: "Station", data: T = None):
+    def add_transfer_station(self, station: "Station", data: TransferData = None):
+        self.__validate_station(station)
+        self.transfer_stations[station] = data
+
+    def remove_transfer_station(self, station: "Station"):
+        self.__validate_station(station)
+        self.transfer_stations.pop(station, None)
+
+    def get_transfer_stations(self):
+        return self.transfer_stations
+
+    def get_transfer_data(self, station: "Station") -> TransferData:
+        self.__validate_station(station)
+        return self.transfer_stations.get(station)
+
+    def add_adjacent_station(self, station: "Station", data: AdjacentData = None):
         self.__validate_station(station)
         self.adjacent_stations[station] = data
 
@@ -44,6 +65,10 @@ class Station(Generic[T]):
 
     def get_adjacent_stations(self):
         return self.adjacent_stations
+
+    def get_adjacent_data(self, station: "Station") -> AdjacentData:
+        self.__validate_station(station)
+        return self.adjacent_stations.get(station)
 
     def get_name(self):
         return self.name
@@ -58,7 +83,11 @@ class Station(Generic[T]):
         if not isinstance(other, Station):
             return False
 
-        return self.name == other.name and self.location == other.location
+        return (
+            self.name == other.name
+            and self.location == other.location
+            and self.route == other.route
+        )
 
     def __hash__(self):
         return hash((self.name, self.location))

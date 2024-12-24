@@ -16,7 +16,7 @@
         "lat": 42.019063,
         "lng": -87.672892
       },
-      "adjacent_stations": ["red:Jarvis"],
+      "adjacent_stations": {},
       "transfer_stations": {
         "yellow:Howard": {
           "free_transfer": true
@@ -265,8 +265,8 @@
         "green:Lake": {
           "free_transfer": true
         },
-        "orange:Lake": {
-          "free_transfer": true
+        "orange:State/Lake": {
+          "free_transfer": false
         },
         "pink:Lake": {
           "free_transfer": true
@@ -303,8 +303,8 @@
         "brown:Jackson": {
           "free_transfer": true
         },
-        "orange:Jackson": {
-          "free_transfer": true
+        "orange:Harold Washington Library-State/Van Buren": {
+          "free_transfer": false
         },
         "pink:Jackson": {
           "free_transfer": true

@@ -1,0 +1,204 @@
+{
+  "route_name": "Orange Line",
+
+  "endpoints": {
+    "Midway": "orange:Midway",
+    "Loop": "orange:Adams/Wabash"
+  },
+
+  "speed": 55,
+
+  "stations": [
+    {
+      "name": "Midway",
+      "route": "orange",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["orange:Pulaski"],
+      "transfer_stations": {}
+    },
+
+      {
+          "name": "Pulaski",
+          "route": "orange",
+          "position": {
+              "lat": 42.019063,
+              "lng": -87.672892
+          },
+          "adjacent_stations": ["orange:Midway", "orange:Kedzie"],
+          "transfer_stations": {}
+
+
+      },
+
+        {
+            "name": "Kedzie",
+            "route": "orange",
+            "position": {
+                "lat": 42.019063,
+                "lng": -87.672892
+            },
+            "adjacent_stations": ["orange:Pulaski", "orange:Western"],
+            "transfer_stations": {}
+        },
+
+        {
+            "name": "Western",
+            "route": "orange",
+            "position": {
+                "lat": 42.019063,
+                "lng": -87.672892
+            },
+            "adjacent_stations": ["orange:Kedzie", "orange:35th/Archer"],
+            "transfer_stations": {}
+        },
+
+        {
+            "name": "35th/Archer",
+            "route": "orange",
+            "position": {
+                "lat": 42.019063,
+                "lng": -87.672892
+            },
+            "adjacent_stations": ["orange:Western", "orange:Ashland"],
+            "transfer_stations": {}
+        },
+
+        {
+            "name": "Ashland",
+            "route": "orange",
+            "position": {
+                "lat": 42.019063,
+                "lng": -87.672892
+            },
+            "adjacent_stations": ["orange:35th/Archer", "orange:Halsted"],
+            "transfer_stations": {}
+        },
+
+        {
+            "name": "Halsted",
+            "route": "orange",
+            "position": {
+                "lat": 42.019063,
+                "lng": -87.672892
+            },
+            "adjacent_stations": ["orange:Ashland", "orange:Roosevelt"],
+            "transfer_stations": {}
+        },
+
+        {
+            "name": "Roosevelt",
+            "route": "orange",
+            "position": {
+                "lat": 42.019063,
+                "lng": -87.672892
+            },
+            "adjacent_stations": ["orange:Halsted", "orange:Harold Washington Library-State/Van Buren"],
+            "transfer_stations": {
+                "red:Roosevelt": {
+                    "free_transfer": true
+                }
+            }
+        },
+
+        {
+            "name": "Harold Washington Library-State/Van Buren",
+            "route": "orange",
+            "position": {
+                "lat": 42.019063,
+                "lng": -87.672892
+            },
+            "adjacent_stations": ["orange:Adams/Wabash"],
+            "transfer_stations": {
+                "red:Jackson": {
+                    "free_transfer": false
+                }
+            }
+        },
+
+      {
+          "name": "LaSalle/Van Buren",
+            "route": "orange",
+            "position": {
+                "lat": 42.019063,
+                "lng": -87.672892
+            },
+            "adjacent_stations": ["orange:Quincy"],
+            "transfer_stations": {}
+        },
+
+        {
+            "name": "Quincy",
+            "route": "orange",
+            "position": {
+                "lat": 42.019063,
+                "lng": -87.672892
+            },
+            "adjacent_stations": [
+                "orange:Washington/Wells"
+            ],
+            "transfer_stations": {}
+        },
+
+        {
+            "name": "Washington/Wells",
+            "route": "orange",
+            "position": {
+                "lat": 42.019063,
+                "lng": -87.672892
+            },
+            "adjacent_stations": ["orange:Clark/Lake"],
+            "transfer_stations": {}
+        },
+
+        {
+            "name": "Clark/Lake",
+            "route": "orange",
+            "position": {
+                "lat": 42.019063,
+                "lng": -87.672892
+            },
+            "adjacent_stations": ["orange:State/Lake"],
+            "transfer_stations": {}
+        },
+
+        {
+            "name": "State/Lake",
+            "route": "orange",
+            "position": {
+                "lat": 42.019063,
+                "lng": -87.672892
+            },
+            "adjacent_stations": ["orange:Washington/Wabash"],
+            "transfer_stations": {
+                "red:Lake": {
+                    "free_transfer": false
+                }
+            }
+        },
+
+        {
+            "name": "Washington/Wabash",
+            "route": "orange",
+            "position": {
+                "lat": 42.019063,
+                "lng": -87.672892
+            },
+            "adjacent_stations": ["orange:Adams/Wabash"],
+            "transfer_stations": {}
+        },
+
+        {
+            "name": "Adams/Wabash",
+            "route": "orange",
+            "position": {
+                "lat": 42.019063,
+                "lng": -87.672892
+            },
+            "adjacent_stations": ["orange:Roosevelt"],
+            "transfer_stations": {}
+        }
+  ]
+}

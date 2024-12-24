@@ -17,6 +17,10 @@ class TransferData(BaseModel):
     free_transfer: Optional[bool]
 
 
+class AdjacentData(BaseModel):
+    pass
+
+
 class Position(BaseModel):
     lat: float
     lng: float
@@ -27,7 +31,7 @@ class StationStop(BaseModel):
     closed: bool = False
     route: str
     position: Position
-    adjacent_stations: List[str]
+    adjacent_stations: List[str] | dict[str, AdjacentData]
     transfer_stations: dict[str, TransferData]
 
 
@@ -49,7 +53,9 @@ class StationDataLoader:
             raise ValueError("Filename cannot be empty")
 
         self.files = files
-        self.stations = self.__load_stations()
+        self.stations: List[Station[AdjacentData, TransferData]] = (
+            self.__load_stations()
+        )
 
     def __load_stations(self) -> List[Station]:
         """
@@ -89,18 +95,54 @@ class StationDataLoader:
                 # add adjacent stations
                 for station in station_data_file.stations:
                     station_id = f"{station.route}:{station.name}"
-                    for adjacent_station_id in station.adjacent_stations:
 
-                        if adjacent_station_id not in stations:
+                    # check if the adjacent_stations is a list or a dictionary
+                    if isinstance(station.adjacent_stations, list):
+
+                        for adjacent_station_id in station.adjacent_stations:
+                            if adjacent_station_id not in stations:
+                                continue
+
+                            adjacent_station = stations[adjacent_station_id]
+
+                            # Prevent adding the same station as an adjacent station
+                            if adjacent_station == stations[station_id]:
+                                continue
+
+                            stations[station_id].add_adjacent_station(adjacent_station)
+                    else:
+                        for (
+                            adjacent_station_id,
+                            adjacent_station_data,
+                        ) in station.adjacent_stations.items():
+                            if adjacent_station_id not in stations:
+                                continue
+
+                            adjacent_station = stations[adjacent_station_id]
+
+                            # Prevent adding the same station as an adjacent station
+                            if adjacent_station == stations[station_id]:
+                                continue
+
+                            stations[station_id].add_adjacent_station(
+                                adjacent_station, adjacent_station_data
+                            )
+
+                # add transfer stations
+                for station in station_data_file.stations:
+                    station_id = f"{station.route}:{station.name}"
+                    for (
+                        transfer_station_id,
+                        transfer_data,
+                    ) in station.transfer_stations.items():
+                        if transfer_station_id not in stations:
                             continue
 
-                        adjacent_station = stations[adjacent_station_id]
+                        transfer_station = stations[transfer_station_id]
 
-                        # Prevent adding the same station as an adjacent station
-                        if adjacent_station == stations[station_id]:
-                            continue
-
-                        stations[station_id].add_adjacent_station(adjacent_station)
+                        stations[station_id].add_transfer_station(
+                            transfer_station, transfer_data
+                        )
 
             return list(stations.values())
 
@@ -123,7 +165,7 @@ class StationDataLoader:
         """
         return [station for station in self.stations if station.route == route]
 
-    def get_station_by_id(self, station_id: str) -> Station:
+    def get_station_by_id(self, station_id: str):
         """
         Get a station by ID
 

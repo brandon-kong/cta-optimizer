@@ -14,7 +14,7 @@ class StationsGraphService:
 
         self.graph.add_node(station)
 
-    def add_edge(self, station1: Station, station2: Station):
+    def add_edge(self, station1: Station, station2: Station, weight: float = None):
         if station1 not in self.graph.nodes() or station2 not in self.graph.nodes():
             raise ValueError("Invalid station")
 
@@ -24,8 +24,14 @@ class StationsGraphService:
 
         distance = station1.get_location().distance_to(station2.get_location())
         self.graph.add_weighted_edges_from(
-            [(station1, station2, distance.value)], "distance"
+            [(station1, station2, weight or distance.value)], "distance"
         )
+
+    def __calculate_weight(self, station1: Station, station2: Station):
+        distance = station1.get_location().distance_to(station2.get_location()).value
+        is_transfer = station2.get_id() in station1.get_transfer_stations()
+
+        return distance if not is_transfer else distance * 2
 
     def get_adjacent_stations(self, station: Station):
         if station not in self.graph.nodes():
