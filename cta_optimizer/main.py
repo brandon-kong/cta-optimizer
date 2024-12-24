@@ -1,4 +1,9 @@
-from cta_optimizer.station_data_loader import StationDataLoader, TransferData
+from cta_optimizer.station_data_loader import (
+    StationDataLoader,
+    TransferData,
+    AdjacentData,
+)
+
 from cta_optimizer.stations_graph_service import StationsGraphService
 from cta_optimizer.lib.logger import Logger
 from cta_optimizer.models.station import Station
@@ -25,7 +30,7 @@ def main():
 
         stations = station_loader.get_all_stations()
 
-        station_graph = StationsGraphService()
+        station_graph: StationsGraphService[AdjacentData, TransferData] = StationsGraphService()
 
         for station in stations:
             station_graph.add_station(station)
@@ -47,13 +52,13 @@ def main():
         )
 
         total_cost = 0
-        last_station: Station = None
+        last_station = None
 
         for station in shortest_path:
             print(station.get_id())
 
             if last_station is not None:
-                is_transfer: TransferData = last_station.get_transfer_data(station)
+                is_transfer = last_station.get_transfer_data(station)
 
                 if is_transfer:
                     if not is_transfer.free_transfer:
