@@ -18,5 +18,8 @@ __pycache__
 .pytest_cache
 .DS_store
 
+# Profiling
+*.dat
+
 # Logs
 *.log

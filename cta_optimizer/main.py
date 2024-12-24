@@ -1,8 +1,11 @@
 from cta_optimizer.station_data_loader import StationDataLoader
 from cta_optimizer.stations_graph_service import StationsGraphService
-
 from cta_optimizer.lib.logger import Logger
 
+from memory_profiler import profile
+
+
+@profile
 def main():
 
     logger = Logger(
@@ -25,7 +28,6 @@ def main():
 
     for station in stations:
         for adjacent_station, _ in station.get_adjacent_stations().items():
-            print(f"Adding edge between {station} and {adjacent_station}")
             station_graph.add_edge(station, adjacent_station)
 
     logger.info("Stations loaded and graph created")
