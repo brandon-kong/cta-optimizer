@@ -74,3 +74,21 @@ class TestLocation(unittest.TestCase):
     def test_location_str(self):
         location = Location(0, 0)
         self.assertEqual(str(location), "Location: 0, 0")
+
+    def test_location_distance_to(self):
+        location1 = Location(0, 0)
+        location2 = Location(0, 0)
+        self.assertEqual(location1.distance_to(location2).value, 0)
+
+        location3 = Location(0, 0)
+        location4 = Location(1, 1)
+
+        self.assertAlmostEqual(location3.distance_to(location4).value, 157.2, places=1)
+
+    def test_location_distance_to_invalid_location(self):
+        location1 = Location(0, 0)
+        with self.assertRaises(ValueError):
+            location1.distance_to(None)
+
+        with self.assertRaises(ValueError):
+            location1.distance_to("Invalid")

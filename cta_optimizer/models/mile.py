@@ -2,6 +2,14 @@ MILE_TO_KILOMETER = 0.621371
 
 class Mile:
     def __init__(self, value: float):
+        if value is None:
+            raise ValueError("Distance cannot be None")
+
+        if not isinstance(value, (int, float)):
+            raise ValueError("Distance must be a number")
+
+        if value < 0:
+            raise ValueError("Distance cannot be negative")
         self.value = value
 
     def to_kilometers(self):

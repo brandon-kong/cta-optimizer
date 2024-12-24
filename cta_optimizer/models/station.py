@@ -16,6 +16,9 @@ class Station(Generic[T]):
 
         self.adjacent_stations: Dict["Station", T] = dict[Station, T]()
 
+    def get_id(self):
+        return f"{self.route}:{self.name}"
+
     def add_adjacent_station(self, station: "Station", data: T = None):
         self.__validate_station(station)
         self.adjacent_stations[station] = data
@@ -66,7 +69,7 @@ class Station(Generic[T]):
 
     @staticmethod
     def __validate_route(route: str):
-        if route is not None and not (isinstance(route, str) or len(route) == 0):
+        if route is not None and not (isinstance(route, str)):
             raise ValueError("Route must be a non-empty string")
 
     def __validate_station(self, station: "Station"):

@@ -18,6 +18,11 @@ class TestStation(unittest.TestCase):
         with self.assertRaises(ValueError):
             Station("", Location(0, 0))
 
+    def test_station_with_invalid_route(self):
+        with self.assertRaises(ValueError):
+            Station("Test Station", Location(0, 0), 123)
+
+
     def test_station_with_invalid_location(self):
         with self.assertRaises(ValueError):
             Station("Test Station", None)
@@ -85,3 +90,7 @@ class TestStation(unittest.TestCase):
         location = Location(0, 0)
         station = Station("Test Station", location)
         self.assertEqual(str(station), f"Station: Test Station ({location})")
+
+    def test_station_get_id(self):
+        station = Station("Test Station", Location(0, 0), "Red")
+        self.assertEqual(station.get_id(), "Red:Test Station")

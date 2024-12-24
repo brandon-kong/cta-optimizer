@@ -95,6 +95,9 @@ class StationDataLoader:
         except ValidationError as e:
             print(f"Error validating station data: {e}")
             return []
+        except Exception as e:
+            print("An unknown error occurred")
+            return []
 
     def get_stations_by_route(self, route: str) -> List[Station]:
         """
@@ -104,15 +107,6 @@ class StationDataLoader:
         :return: A list of Station objects
         """
         return [station for station in self.stations if station.route == route]
-
-    def get_station_by_name(self, name: str) -> Station:
-        """
-        Get a station by name
-
-        :param name: The name of the station to get
-        :return: The Station object
-        """
-        return next((station for station in self.stations if station.name == name), None)
 
     def get_station_by_id(self, station_id: str) -> Station:
         """
