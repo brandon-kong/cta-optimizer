@@ -36,7 +36,11 @@ class CTATrainStation(Station):
         if not isinstance(other, CTATrainStation):
             return False
 
-        return self.name == other.name and self.location == other.location and self.route == other.route
+        return (
+            self.name == other.name
+            and self.location == other.location
+            and self.route == other.route
+        )
 
     def __hash__(self):
         return hash((self.name, self.location, self.route))

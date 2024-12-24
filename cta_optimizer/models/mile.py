@@ -1,5 +1,6 @@
 MILE_TO_KILOMETER = 0.621371
 
+
 class Mile:
     def __init__(self, value: float):
         if value is None:

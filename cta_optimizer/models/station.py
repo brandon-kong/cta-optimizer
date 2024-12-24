@@ -4,6 +4,7 @@ from cta_optimizer.models.location import Location
 
 T = TypeVar("T")
 
+
 class Station(Generic[T]):
     def __init__(self, name: str, location: Location, route: str = None):
         self.__validate_name(name)
@@ -14,10 +15,24 @@ class Station(Generic[T]):
         self.location = location
         self.route = route
 
+        self.closed = False
+
         self.adjacent_stations: Dict["Station", T] = dict[Station, T]()
 
     def get_id(self):
         return f"{self.route}:{self.name}"
+
+    def set_closed(self, closed: bool):
+        if closed is None:
+            raise ValueError("Closed cannot be None")
+
+        if not isinstance(closed, bool):
+            raise ValueError("Closed must be a boolean")
+
+        self.closed = closed
+
+    def is_closed(self):
+        return self.closed
 
     def add_adjacent_station(self, station: "Station", data: T = None):
         self.__validate_station(station)

@@ -1,11 +1,7 @@
 import os
 import unittest
 from unittest.mock import patch, mock_open
-from cta_optimizer.lib.logger import (
-    Logger,
-    LogLevel,
-    format_log_message
-)
+from cta_optimizer.lib.logger import Logger, LogLevel, format_log_message
 
 LOG_FILE_PATH = "logs/test.log"
 LOG_FILE_PATH_2 = "logs/test/test.log"
@@ -34,7 +30,6 @@ class TestLogger(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             Logger(file_path=123)
-
 
     def test_logger_logs_info(self):
         logger = Logger(file_path=LOG_FILE_PATH, create_new_file=True)
@@ -86,7 +81,9 @@ class TestLogger(unittest.TestCase):
             format_log_message("", LogLevel.INFO)
 
     def test_delete_log_file_on_exit(self):
-        logger = Logger(file_path=LOG_FILE_PATH, create_new_file=True, delete_file_on_exit=True)
+        logger = Logger(
+            file_path=LOG_FILE_PATH, create_new_file=True, delete_file_on_exit=True
+        )
         self.assertIsNotNone(logger)
 
         del logger
@@ -95,7 +92,9 @@ class TestLogger(unittest.TestCase):
         self.assertFalse(os.path.exists(LOG_FILE_PATH))
 
     def test_delete_log_file_on_exit_fails(self):
-        logger = Logger(file_path=LOG_FILE_PATH, create_new_file=True, delete_file_on_exit=True)
+        logger = Logger(
+            file_path=LOG_FILE_PATH, create_new_file=True, delete_file_on_exit=True
+        )
         self.assertIsNotNone(logger)
 
         # Delete the log file before deleting the logger
@@ -118,7 +117,7 @@ class TestLogger(unittest.TestCase):
         self.assertTrue(logger.failed_to_open_file)
         self.assertTrue(logger.print_to_console)
 
-    #@patch("builtins.open", side_effect=[mock_open(), mock_open()])
+    # @patch("builtins.open", side_effect=[mock_open(), mock_open()])
     def test_logger_creation_error_backup_succeeds(self):
         logger = Logger(file_path=LOG_FILE_PATH_2, create_new_file=True)
         self.assertFalse(logger.failed_to_open_file)

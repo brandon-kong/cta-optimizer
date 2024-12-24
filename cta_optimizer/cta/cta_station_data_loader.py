@@ -2,9 +2,7 @@ from typing import List
 
 from cta_optimizer.station_data_loader import StationDataLoader
 from cta_optimizer.models.station import Station
-from cta_optimizer.cta.train_station import (
-    CTATrainLine
-)
+from cta_optimizer.cta.train_station import CTATrainLine
 
 
 class CTAStationDataLoader(StationDataLoader):
@@ -18,5 +16,6 @@ class CTAStationDataLoader(StationDataLoader):
         :param line: The train line to get stations for
         :return: A list of Station objects
         """
-        return [station for station in self.stations if station.route == line.value.lower()]
-
+        return [
+            station for station in self.stations if station.route == line.value.lower()
+        ]

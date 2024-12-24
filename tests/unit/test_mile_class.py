@@ -2,6 +2,7 @@ import unittest
 
 from cta_optimizer.models.mile import Mile
 
+
 class TestMileClass(unittest.TestCase):
 
     def test_mile_creates_object(self):

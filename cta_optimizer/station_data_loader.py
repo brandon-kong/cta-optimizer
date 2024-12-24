@@ -24,6 +24,7 @@ class Position(BaseModel):
 
 class StationStop(BaseModel):
     name: str
+    closed: bool = False
     route: str
     position: Position
     adjacent_stations: List[str]
@@ -73,7 +74,16 @@ class StationDataLoader:
                     # create all the stations before adding adjacent stations
                     for station in this_station_data.stations:
                         station_id = f"{station.route}:{station.name}"
-                        stations[station_id] = Station(station.name, Location(station.position.lat, station.position.lng), station.route)
+
+                        new_station = Station(
+                            station.name,
+                            Location(station.position.lat, station.position.lng),
+                            station.route,
+                        )
+
+                        new_station.set_closed(station.closed)
+
+                        stations[station_id] = new_station
 
             for station_data_file in station_data:
                 # add adjacent stations
@@ -85,6 +95,11 @@ class StationDataLoader:
                             continue
 
                         adjacent_station = stations[adjacent_station_id]
+
+                        # Prevent adding the same station as an adjacent station
+                        if adjacent_station == stations[station_id]:
+                            continue
+
                         stations[station_id].add_adjacent_station(adjacent_station)
 
             return list(stations.values())
@@ -96,7 +111,7 @@ class StationDataLoader:
             print(f"Error validating station data: {e}")
             return []
         except Exception as e:
-            print("An unknown error occurred")
+            print(f"An unknown error occurred: {e}")
             return []
 
     def get_stations_by_route(self, route: str) -> List[Station]:
@@ -115,8 +130,10 @@ class StationDataLoader:
         :param station_id: The ID of the station to get
         :return: The Station object
         """
-        return next((station for station in self.stations if station.get_id() == station_id), None)
+        return next(
+            (station for station in self.stations if station.get_id() == station_id),
+            None,
+        )
 
     def get_all_stations(self) -> List[Station]:
         return self.stations
-

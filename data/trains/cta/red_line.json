@@ -58,6 +58,345 @@
       },
       "adjacent_stations": ["red:Morse", "red:Granville"],
       "transfer_stations": {}
+    },
+
+    {
+      "name": "Granville",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Loyola", "red:Thorndale"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "Thorndale",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Granville", "red:Bryn Mawr"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "Bryn Mawr",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Thorndale", "red:Berwyn", "red:Argyle"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "Berwyn",
+      "closed": true,
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Bryn Mawr", "red:Argyle"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "Argyle",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Berwyn", "red:Bryn Mawr", "red:Lawrence", "red:Wilson"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "Lawrence",
+      "closed": true,
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Argyle", "red:Wilson"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "Wilson",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Lawrence", "red:Argyle", "red:Sheridan"],
+      "transfer_stations": {
+        "purple:Wilson": {
+          "free_transfer": true
+        }
+      }
+    },
+
+    {
+      "name": "Sheridan",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Wilson", "red:Addison"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "Addison",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Sheridan", "red:Belmont"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "Belmont",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Addison", "red:Fullerton"],
+      "transfer_stations": {
+        "brown:Belmont": {
+          "free_transfer": true
+        },
+        "purple:Belmont": {
+          "free_transfer": true
+        }
+      }
+    },
+
+    {
+      "name": "Fullerton",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Belmont", "red:North/Clybourn"],
+      "transfer_stations": {
+        "brown:Fullerton": {
+          "free_transfer": true
+        },
+        "purple:Fullerton": {
+          "free_transfer": true
+        }
+      }
+    },
+
+    {
+      "name": "North/Clybourn",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Fullerton", "red:Clark/Division"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "Clark/Division",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:North/Clybourn", "red:Chicago/State"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "Chicago/State",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Clark/Division", "red:Grand/State"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "Grand/State",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Chicago/State", "red:Lake"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "Lake",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Grand/State", "red:Monroe"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "Monroe",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Lake", "red:Jackson"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "Jackson",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Monroe", "red:Harrison"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "Harrison",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Jackson", "red:Roosevelt"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "Roosevelt",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Harrison", "red:Cermak-Chinatown"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "Cermak-Chinatown",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Roosevelt", "red:Sox-35th"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "Sox-35th",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Cermak-Chinatown", "red:47th"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "47th",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Sox-35th", "red:Garfield"],
+        "transfer_stations": {}
+    },
+
+    {
+      "name": "Garfield",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:47th", "red:63rd"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "63rd",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:Garfield", "red:69th"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "69th",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:63rd", "red:79th"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "79th",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:69th", "red:87th"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "87th",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:79th", "red:95th/Dan Ryan"],
+      "transfer_stations": {}
+    },
+
+    {
+      "name": "95th/Dan Ryan",
+      "route": "red",
+      "position": {
+        "lat": 42.019063,
+        "lng": -87.672892
+      },
+      "adjacent_stations": ["red:87th"],
+      "transfer_stations": {}
     }
   ]
 }

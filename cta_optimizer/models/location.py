@@ -1,6 +1,7 @@
 from math import radians, sin, cos, sqrt, asin
 from cta_optimizer.models.kilometer import Kilometer
 
+
 class Location:
     def __init__(self, latitude: float, longitude: float):
         self.__validate_latitude(latitude)
@@ -63,7 +64,6 @@ class Location:
         c = 2 * asin(sqrt(a))
         r = 6371  # Radius of earth in kilometers. Use 3956 for miles. Determines return value units.
         return Kilometer(c * r)
-
 
     def __str__(self):
         return f"Location: {self.latitude}, {self.longitude}"

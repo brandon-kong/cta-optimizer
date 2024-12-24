@@ -11,15 +11,13 @@ mock_json_data = {
         {
             "name": "Dempster-Skokie",
             "route": "yellow",
-            "position": {
-                "lat": 42.038951,
-                "lng": -87.751919
-            },
+            "position": {"lat": 42.038951, "lng": -87.751919},
             "adjacent_stations": ["red:Howard"],
-            "transfer_stations": {}
+            "transfer_stations": {},
         }
-    ]
+    ],
 }
+
 
 class TestStationDataLoader(unittest.TestCase):
 

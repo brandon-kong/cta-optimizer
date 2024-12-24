@@ -2,6 +2,7 @@ import unittest
 from cta_optimizer.models.station import Station
 from cta_optimizer.models.location import Location
 
+
 class TestStation(unittest.TestCase):
 
     def test_station_creates_object(self):
@@ -21,7 +22,6 @@ class TestStation(unittest.TestCase):
     def test_station_with_invalid_route(self):
         with self.assertRaises(ValueError):
             Station("Test Station", Location(0, 0), 123)
-
 
     def test_station_with_invalid_location(self):
         with self.assertRaises(ValueError):
