@@ -1,88 +1,22 @@
 [
     {
-        "name": "47th",
-        "closed": false,
-        "route": "red",
-        "position": {
-            "lat": 41.810318,
-            "lng": -87.63094
-        },
-        "adjacent_stations": [],
-        "transfer_stations": {}
-    },
-    {
-        "name": "63rd",
-        "closed": false,
-        "route": "red",
-        "position": {
-            "lat": 41.780536,
-            "lng": -87.630952
-        },
-        "adjacent_stations": [],
-        "transfer_stations": {}
-    },
-    {
-        "name": "69th",
-        "closed": false,
-        "route": "red",
-        "position": {
-            "lat": 41.768367,
-            "lng": -87.625724
-        },
-        "adjacent_stations": [],
-        "transfer_stations": {}
-    },
-    {
-        "name": "79th",
-        "closed": false,
-        "route": "red",
-        "position": {
-            "lat": 41.750419,
-            "lng": -87.625112
-        },
-        "adjacent_stations": [],
-        "transfer_stations": {}
-    },
-    {
-        "name": "87th",
-        "closed": false,
-        "route": "red",
-        "position": {
-            "lat": 41.735372,
-            "lng": -87.624717
-        },
-        "adjacent_stations": [],
-        "transfer_stations": {}
-    },
-    {
-        "name": "95th/Dan Ryan",
-        "closed": false,
-        "route": "red",
-        "position": {
-            "lat": 41.722377,
-            "lng": -87.624342
-        },
-        "adjacent_stations": [],
-        "transfer_stations": {}
-    },
-    {
         "name": "Addison",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.947428,
-            "lng": -87.653626
+            "lat": 41.94738,
+            "lng": -87.71906
         },
         "adjacent_stations": [],
         "transfer_stations": {}
     },
     {
-        "name": "Argyle",
+        "name": "Austin",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.973453,
-            "lng": -87.65853
+            "lat": 41.870851,
+            "lng": -87.776812
         },
         "adjacent_stations": [],
         "transfer_stations": {}
@@ -90,43 +24,21 @@
     {
         "name": "Belmont",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.939751,
-            "lng": -87.65338
+            "lat": 41.938132,
+            "lng": -87.712359
         },
         "adjacent_stations": [],
         "transfer_stations": {}
     },
     {
-        "name": "Berwyn",
+        "name": "California",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.977984,
-            "lng": -87.658668
-        },
-        "adjacent_stations": [],
-        "transfer_stations": {}
-    },
-    {
-        "name": "Bryn Mawr",
-        "closed": false,
-        "route": "red",
-        "position": {
-            "lat": 41.983504,
-            "lng": -87.65884
-        },
-        "adjacent_stations": [],
-        "transfer_stations": {}
-    },
-    {
-        "name": "Cermak-Chinatown",
-        "closed": false,
-        "route": "red",
-        "position": {
-            "lat": 41.853206,
-            "lng": -87.630968
+            "lat": 41.921939,
+            "lng": -87.69689
         },
         "adjacent_stations": [],
         "transfer_stations": {}
@@ -134,43 +46,87 @@
     {
         "name": "Chicago",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.896671,
-            "lng": -87.628176
+            "lat": 41.896075,
+            "lng": -87.655214
         },
         "adjacent_stations": [],
         "transfer_stations": {}
     },
     {
-        "name": "Clark/Division",
+        "name": "Cicero",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.90392,
-            "lng": -87.631412
+            "lat": 41.871574,
+            "lng": -87.745154
         },
         "adjacent_stations": [],
         "transfer_stations": {}
     },
     {
-        "name": "Fullerton",
+        "name": "Clark/Lake",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.925051,
-            "lng": -87.652866
+            "lat": 41.885737,
+            "lng": -87.630886
         },
         "adjacent_stations": [],
         "transfer_stations": {}
     },
     {
-        "name": "Garfield",
+        "name": "Clinton",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.79542,
-            "lng": -87.631157
+            "lat": 41.875539,
+            "lng": -87.640984
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Cumberland",
+        "closed": false,
+        "route": "blue",
+        "position": {
+            "lat": 41.984246,
+            "lng": -87.838028
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Damen",
+        "closed": false,
+        "route": "blue",
+        "position": {
+            "lat": 41.909744,
+            "lng": -87.677437
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Division",
+        "closed": false,
+        "route": "blue",
+        "position": {
+            "lat": 41.903355,
+            "lng": -87.666496
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Forest Park",
+        "closed": false,
+        "route": "blue",
+        "position": {
+            "lat": 41.874257,
+            "lng": -87.817318
         },
         "adjacent_stations": [],
         "transfer_stations": {}
@@ -178,43 +134,43 @@
     {
         "name": "Grand",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.891665,
-            "lng": -87.628021
+            "lat": 41.891189,
+            "lng": -87.647578
         },
         "adjacent_stations": [],
         "transfer_stations": {}
     },
     {
-        "name": "Granville",
+        "name": "Harlem",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.993664,
-            "lng": -87.659202
+            "lat": 41.87349,
+            "lng": -87.806961
         },
         "adjacent_stations": [],
         "transfer_stations": {}
     },
     {
-        "name": "Harrison",
+        "name": "Illinois Medical District",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.874039,
-            "lng": -87.627479
+            "lat": 41.875706,
+            "lng": -87.673932
         },
         "adjacent_stations": [],
         "transfer_stations": {}
     },
     {
-        "name": "Howard",
+        "name": "Irving Park",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 42.019063,
-            "lng": -87.672892
+            "lat": 41.952925,
+            "lng": -87.729229
         },
         "adjacent_stations": [],
         "transfer_stations": {}
@@ -222,54 +178,54 @@
     {
         "name": "Jackson",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.878153,
-            "lng": -87.627596
+            "lat": 41.878183,
+            "lng": -87.629296
         },
         "adjacent_stations": [],
         "transfer_stations": {}
     },
     {
-        "name": "Jarvis",
+        "name": "Jefferson Park",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 42.015876,
-            "lng": -87.669092
+            "lat": 41.970634,
+            "lng": -87.760892
         },
         "adjacent_stations": [],
         "transfer_stations": {}
     },
     {
-        "name": "Lake",
+        "name": "Kedzie-Homan",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.884809,
-            "lng": -87.627813
+            "lat": 41.874341,
+            "lng": -87.70604
         },
         "adjacent_stations": [],
         "transfer_stations": {}
     },
     {
-        "name": "Lawrence",
+        "name": "LaSalle",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.969139,
-            "lng": -87.658493
+            "lat": 41.875568,
+            "lng": -87.631722
         },
         "adjacent_stations": [],
         "transfer_stations": {}
     },
     {
-        "name": "Loyola",
+        "name": "Logan Square",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 42.001073,
-            "lng": -87.661061
+            "lat": 41.929728,
+            "lng": -87.708541
         },
         "adjacent_stations": [],
         "transfer_stations": {}
@@ -277,87 +233,109 @@
     {
         "name": "Monroe",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.880745,
-            "lng": -87.627696
+            "lat": 41.880703,
+            "lng": -87.629378
         },
         "adjacent_stations": [],
         "transfer_stations": {}
     },
     {
-        "name": "Morse",
+        "name": "Montrose",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 42.008362,
-            "lng": -87.665909
+            "lat": 41.961539,
+            "lng": -87.743574
         },
         "adjacent_stations": [],
         "transfer_stations": {}
     },
     {
-        "name": "North/Clybourn",
+        "name": "Oak Park",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.910655,
-            "lng": -87.649177
+            "lat": 41.872108,
+            "lng": -87.791602
         },
         "adjacent_stations": [],
         "transfer_stations": {}
     },
     {
-        "name": "Roosevelt",
+        "name": "O'Hare",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.867368,
-            "lng": -87.627402
+            "lat": 41.97766526,
+            "lng": -87.90422307
         },
         "adjacent_stations": [],
         "transfer_stations": {}
     },
     {
-        "name": "Sheridan",
+        "name": "Pulaski",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.953775,
-            "lng": -87.654929
+            "lat": 41.873797,
+            "lng": -87.725663
         },
         "adjacent_stations": [],
         "transfer_stations": {}
     },
     {
-        "name": "Sox-35th",
+        "name": "Racine",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.831191,
-            "lng": -87.630636
+            "lat": 41.87592,
+            "lng": -87.659458
         },
         "adjacent_stations": [],
         "transfer_stations": {}
     },
     {
-        "name": "Thorndale",
+        "name": "Rosemont",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.990259,
-            "lng": -87.659076
+            "lat": 41.983507,
+            "lng": -87.859388
         },
         "adjacent_stations": [],
         "transfer_stations": {}
     },
     {
-        "name": "Wilson",
+        "name": "UIC-Halsted",
         "closed": false,
-        "route": "red",
+        "route": "blue",
         "position": {
-            "lat": 41.964273,
-            "lng": -87.657588
+            "lat": 41.875474,
+            "lng": -87.649707
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Washington",
+        "closed": false,
+        "route": "blue",
+        "position": {
+            "lat": 41.883164,
+            "lng": -87.62944
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Western",
+        "closed": false,
+        "route": "blue",
+        "position": {
+            "lat": 41.875478,
+            "lng": -87.688436
         },
         "adjacent_stations": [],
         "transfer_stations": {}

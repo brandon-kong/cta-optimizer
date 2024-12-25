@@ -1,0 +1,299 @@
+[
+    {
+        "name": "Adams/Wabash",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.879507,
+            "lng": -87.626037
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Addison",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.947028,
+            "lng": -87.674642
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Armitage",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.918217,
+            "lng": -87.652644
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Belmont",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.939751,
+            "lng": -87.65338
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Chicago",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.89681,
+            "lng": -87.635924
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Clark/Lake",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.885737,
+            "lng": -87.630886
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Damen",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.966286,
+            "lng": -87.678639
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Diversey",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.932732,
+            "lng": -87.653131
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Francisco",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.966046,
+            "lng": -87.701644
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Fullerton",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.925051,
+            "lng": -87.652866
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Harold Washington Library-State/Van Buren",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.876862,
+            "lng": -87.628196
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Irving Park",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.954521,
+            "lng": -87.674868
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Kedzie",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.965996,
+            "lng": -87.708821
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Kimball",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.967901,
+            "lng": -87.713065
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "LaSalle/Van Buren",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.8768,
+            "lng": -87.631739
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Merchandise Mart",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.888969,
+            "lng": -87.633924
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Montrose",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.961756,
+            "lng": -87.675047
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Paulina",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.943623,
+            "lng": -87.670907
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Quincy/Wells",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.878723,
+            "lng": -87.63374
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Rockwell",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.966115,
+            "lng": -87.6941
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Sedgwick",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.910409,
+            "lng": -87.639302
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Southport",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.943744,
+            "lng": -87.663619
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "State/Lake",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.88574,
+            "lng": -87.627835
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Washington/Wabash",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.88322,
+            "lng": -87.626189
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Washington/Wells",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.882695,
+            "lng": -87.63378
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Wellington",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.936033,
+            "lng": -87.653266
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Western",
+        "closed": false,
+        "route": "brown",
+        "position": {
+            "lat": 41.966163,
+            "lng": -87.688502
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    }
+]

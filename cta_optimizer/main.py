@@ -4,6 +4,8 @@ from cta_optimizer.station_data_loader import (
     AdjacentData,
 )
 
+from cta_optimizer.models.kilometer import Kilometer
+
 from cta_optimizer.stations_graph_service import StationsGraphService
 from cta_optimizer.lib.logger import Logger
 from cta_optimizer.models.station import Station
@@ -52,12 +54,17 @@ def main():
         )
 
         total_cost = 0
+        total_distance = Kilometer(0)
+
         last_station = None
 
         for station in shortest_path:
             print(station.get_id())
 
             if last_station is not None:
+                distance = last_station.get_location().distance_to(station.get_location())
+                total_distance += distance
+
                 is_transfer = last_station.get_transfer_data(station)
 
                 if is_transfer:
@@ -67,6 +74,7 @@ def main():
             last_station = station
 
         print(f"Total cost of this trip: {total_cost}")
+        print(f"Total distance of this trip: {total_distance}")
 
         logger.info("Stations loaded and graph created")
 

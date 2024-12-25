@@ -1,0 +1,101 @@
+[
+    {
+        "name": "Central",
+        "closed": false,
+        "route": "purple",
+        "position": {
+            "lat": 42.063987,
+            "lng": -87.685617
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Davis",
+        "closed": false,
+        "route": "purple",
+        "position": {
+            "lat": 42.04771,
+            "lng": -87.683543
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Dempster",
+        "closed": false,
+        "route": "purple",
+        "position": {
+            "lat": 42.041655,
+            "lng": -87.681602
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Foster",
+        "closed": false,
+        "route": "purple",
+        "position": {
+            "lat": 42.05416,
+            "lng": -87.68356
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Howard",
+        "closed": false,
+        "route": "purple",
+        "position": {
+            "lat": 42.019063,
+            "lng": -87.672892
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Linden",
+        "closed": false,
+        "route": "purple",
+        "position": {
+            "lat": 42.073153,
+            "lng": -87.69073
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Main",
+        "closed": false,
+        "route": "purple",
+        "position": {
+            "lat": 42.033456,
+            "lng": -87.679538
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Noyes",
+        "closed": false,
+        "route": "purple",
+        "position": {
+            "lat": 42.058282,
+            "lng": -87.683337
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "South Boulevard",
+        "closed": false,
+        "route": "purple",
+        "position": {
+            "lat": 42.027612,
+            "lng": -87.678329
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    }
+]

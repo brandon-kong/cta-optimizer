@@ -1,11 +1,22 @@
 [
     {
-        "name": "35th/Archer",
+        "name": "18th",
         "closed": false,
-        "route": "orange",
+        "route": "pink",
         "position": {
-            "lat": 41.829353,
-            "lng": -87.680622
+            "lat": 41.857908,
+            "lng": -87.669147
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "54th/Cermak",
+        "closed": false,
+        "route": "pink",
+        "position": {
+            "lat": 41.85177331,
+            "lng": -87.75669201
         },
         "adjacent_stations": [],
         "transfer_stations": {}
@@ -13,7 +24,7 @@
     {
         "name": "Adams/Wabash",
         "closed": false,
-        "route": "orange",
+        "route": "pink",
         "position": {
             "lat": 41.879507,
             "lng": -87.626037
@@ -24,10 +35,43 @@
     {
         "name": "Ashland",
         "closed": false,
-        "route": "orange",
+        "route": "pink",
         "position": {
-            "lat": 41.839234,
-            "lng": -87.665317
+            "lat": 41.885269,
+            "lng": -87.666969
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "California",
+        "closed": false,
+        "route": "pink",
+        "position": {
+            "lat": 41.854109,
+            "lng": -87.694774
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Central Park",
+        "closed": false,
+        "route": "pink",
+        "position": {
+            "lat": 41.853839,
+            "lng": -87.714842
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Cicero",
+        "closed": false,
+        "route": "pink",
+        "position": {
+            "lat": 41.85182,
+            "lng": -87.745336
         },
         "adjacent_stations": [],
         "transfer_stations": {}
@@ -35,7 +79,7 @@
     {
         "name": "Clark/Lake",
         "closed": false,
-        "route": "orange",
+        "route": "pink",
         "position": {
             "lat": 41.885737,
             "lng": -87.630886
@@ -44,12 +88,23 @@
         "transfer_stations": {}
     },
     {
-        "name": "Halsted",
+        "name": "Clinton",
         "closed": false,
-        "route": "orange",
+        "route": "pink",
         "position": {
-            "lat": 41.84678,
-            "lng": -87.648088
+            "lat": 41.885678,
+            "lng": -87.641782
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Damen",
+        "closed": false,
+        "route": "pink",
+        "position": {
+            "lat": 41.854517,
+            "lng": -87.675975
         },
         "adjacent_stations": [],
         "transfer_stations": {}
@@ -57,7 +112,7 @@
     {
         "name": "Harold Washington Library-State/Van Buren",
         "closed": false,
-        "route": "orange",
+        "route": "pink",
         "position": {
             "lat": 41.876862,
             "lng": -87.628196
@@ -68,10 +123,21 @@
     {
         "name": "Kedzie",
         "closed": false,
-        "route": "orange",
+        "route": "pink",
         "position": {
-            "lat": 41.804236,
-            "lng": -87.704406
+            "lat": 41.853964,
+            "lng": -87.705408
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Kostner",
+        "closed": false,
+        "route": "pink",
+        "position": {
+            "lat": 41.853751,
+            "lng": -87.733258
         },
         "adjacent_stations": [],
         "transfer_stations": {}
@@ -79,7 +145,7 @@
     {
         "name": "LaSalle/Van Buren",
         "closed": false,
-        "route": "orange",
+        "route": "pink",
         "position": {
             "lat": 41.8768,
             "lng": -87.631739
@@ -88,12 +154,23 @@
         "transfer_stations": {}
     },
     {
-        "name": "Midway",
+        "name": "Morgan",
         "closed": false,
-        "route": "orange",
+        "route": "pink",
         "position": {
-            "lat": 41.78661,
-            "lng": -87.737875
+            "lat": 41.885586,
+            "lng": -87.652193
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
+    },
+    {
+        "name": "Polk",
+        "closed": false,
+        "route": "pink",
+        "position": {
+            "lat": 41.871551,
+            "lng": -87.66953
         },
         "adjacent_stations": [],
         "transfer_stations": {}
@@ -101,10 +178,10 @@
     {
         "name": "Pulaski",
         "closed": false,
-        "route": "orange",
+        "route": "pink",
         "position": {
-            "lat": 41.799756,
-            "lng": -87.724493
+            "lat": 41.853732,
+            "lng": -87.724311
         },
         "adjacent_stations": [],
         "transfer_stations": {}
@@ -112,7 +189,7 @@
     {
         "name": "Quincy/Wells",
         "closed": false,
-        "route": "orange",
+        "route": "pink",
         "position": {
             "lat": 41.878723,
             "lng": -87.63374
@@ -121,20 +198,9 @@
         "transfer_stations": {}
     },
     {
-        "name": "Roosevelt",
-        "closed": false,
-        "route": "orange",
-        "position": {
-            "lat": 41.867405,
-            "lng": -87.62659
-        },
-        "adjacent_stations": [],
-        "transfer_stations": {}
-    },
-    {
         "name": "State/Lake",
         "closed": false,
-        "route": "orange",
+        "route": "pink",
         "position": {
             "lat": 41.88574,
             "lng": -87.627835
@@ -145,7 +211,7 @@
     {
         "name": "Washington/Wabash",
         "closed": false,
-        "route": "orange",
+        "route": "pink",
         "position": {
             "lat": 41.88322,
             "lng": -87.626189
@@ -156,7 +222,7 @@
     {
         "name": "Washington/Wells",
         "closed": false,
-        "route": "orange",
+        "route": "pink",
         "position": {
             "lat": 41.882695,
             "lng": -87.63378
@@ -167,10 +233,10 @@
     {
         "name": "Western",
         "closed": false,
-        "route": "orange",
+        "route": "pink",
         "position": {
-            "lat": 41.804546,
-            "lng": -87.684019
+            "lat": 41.854225,
+            "lng": -87.685129
         },
         "adjacent_stations": [],
         "transfer_stations": {}

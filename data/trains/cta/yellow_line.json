@@ -1,49 +1,35 @@
-{
-  "route_name": "Yellow Line",
-
-  "endpoints": {
-    "Dempster-Skokie": "yellow:Dempster-Skokie",
-    "Howard": "yellow:Howard"
-  },
-
-  "speed": 55,
-
-  "stations": [
+[
     {
-      "name": "Dempster-Skokie",
-      "route": "yellow",
-      "position": {
-        "lat": 42.019063,
-        "lng": -87.672892
-      },
-      "adjacent_stations": ["yellow:Oakton-Skokie"],
-      "transfer_stations": {}
+        "name": "Dempster-Skokie",
+        "closed": false,
+        "route": "yellow",
+        "position": {
+            "lat": 42.038951,
+            "lng": -87.751919
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
     },
-
     {
-      "name": "Oakton-Skokie",
-      "route": "yellow",
-      "position": {
-        "lat": 42.019063,
-        "lng": -87.672892
-      },
-      "adjacent_stations": ["yellow:Howard", "yellow:Dempster-Skokie"],
-      "transfer_stations": {}
+        "name": "Howard",
+        "closed": false,
+        "route": "yellow",
+        "position": {
+            "lat": 42.019063,
+            "lng": -87.672892
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
     },
-
     {
-      "name": "Howard",
-      "route": "yellow",
-      "position": {
-        "lat": 42.019063,
-        "lng": -87.672892
-      },
-      "adjacent_stations": ["yellow:Oakton-Skokie"],
-      "transfer_stations": {
-        "red:Howard": {
-          "free_transfer": true
-        }
-      }
+        "name": "Oakton-Skokie",
+        "closed": false,
+        "route": "yellow",
+        "position": {
+            "lat": 42.02624348,
+            "lng": -87.74722084
+        },
+        "adjacent_stations": [],
+        "transfer_stations": {}
     }
-  ]
-}
+]
