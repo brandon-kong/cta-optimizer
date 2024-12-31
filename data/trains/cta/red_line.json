@@ -359,7 +359,16 @@
             "lat": 41.964273,
             "lng": -87.657588
         },
-        "adjacent_stations": [],
-        "transfer_stations": {}
+        "adjacent_stations": [
+            "red:Sheridan",
+            "red:Lawrence",
+            "red:Berwyn",
+            "red:Argyle"
+        ],
+        "transfer_stations": {
+            "purple:Wilson": {
+                "free_transfer": true
+            }
+        }
     }
 ]
